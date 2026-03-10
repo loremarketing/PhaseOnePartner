@@ -292,7 +292,7 @@ export default function ForFounders() {
                 Benefits
               </p>
               <h2 className="font-manrope font-medium text-[32px] lg:text-[64px] leading-[42px] lg:leading-[70px] text-black">
-                Our Key <span className="text-[#0224e9]">advantages</span>
+                Our key <span className="text-[#0224e9]">advantages</span>
               </h2>
             </div>
           </div>
@@ -380,7 +380,7 @@ export default function ForFounders() {
         </div>
       </section>
 
-      {/* The Phase of Doing a Deal Section */}
+      {/* THE PHASES OF DOING A DEAL Section */}
       <section
         id="phases-of-deal"
         className="py-12 lg:py-20 px-[15px] lg:px-[70px] bg-white flex flex-col items-center justify-center"
@@ -389,7 +389,7 @@ export default function ForFounders() {
           <div className="space-y-10 lg:space-y-[60px] flex flex-col justify-center h-full text-center lg:text-left">
             <div className="space-y-5 lg:space-y-[30px]">
               <p className="font-manrope text-[#0224e9] text-[14px] uppercase tracking-wide">
-                The Phase of Doing a Deal
+                THE PHASES OF DOING A DEAL
               </p>
               <h2 className="font-manrope font-medium text-[32px] lg:text-[64px] leading-[42px] lg:leading-[70px] text-black">
                 From the first call to beyond the signed{" "}

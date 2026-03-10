@@ -15,7 +15,7 @@ export default function Footer() {
               <p>Follow PhaseOne Partners</p>
               {/* Desktop: Facebook and LinkedIn only */}
               <div className="hidden lg:flex gap-2 items-center">
-                <Link 
+                <Link
                   href="https://www.facebook.com/61581009058267/about/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -28,7 +28,7 @@ export default function Footer() {
                     className="w-4 h-4 sm:w-[13px] sm:h-[13px]"
                   />
                 </Link>
-                <Link 
+                <Link
                   href="https://www.linkedin.com/company/phaseone-partners/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -65,10 +65,10 @@ export default function Footer() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 w-full lg:w-auto justify-items-center lg:justify-items-start">
-            {/* Phase One Partners */}
+            {/* PhaseOne Partnerss */}
             <div className="text-center lg:text-left">
               <h4 className="font-extrabold text-[16px] sm:text-[18px] lg:text-[28px] mb-4 sm:mb-6 lg:mb-8">
-                Phase One Partners
+                PhaseOne Partnerss
               </h4>
               <ul className="space-y-1 sm:space-y-2">
                 <li>
@@ -165,7 +165,7 @@ export default function Footer() {
               </ul>
               {/* Mobile: Social media icons under EmailPhaseOne Partners*/}
               <div className="flex gap-2 items-center justify-center lg:hidden mt-4">
-                <Link 
+                <Link
                   href="https://www.facebook.com/61581009058267/about/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -178,7 +178,7 @@ export default function Footer() {
                     className="w-4 h-4 sm:w-[13px] sm:h-[13px]"
                   />
                 </Link>
-                <Link 
+                <Link
                   href="https://www.linkedin.com/company/phaseone-partners/"
                   target="_blank"
                   rel="noopener noreferrer"

@@ -59,7 +59,7 @@ export default function Forinvestors() {
       number: "01.",
       title: "Mandate and calibration",
       description:
-        "Conversations start with deep industry research and alignment with your key objectives. From there, we build a target map, and identify key next steps.",
+        "Conversations start with deep industry research and alignment with yOur key objectives. From there, we build a target map, and identify key next steps.",
       duration: "1–2 weeks",
     },
     {
@@ -418,7 +418,7 @@ export default function Forinvestors() {
         </div>
       </section>
 
-      {/* The Phase of Doing a Deal Section */}
+      {/* THE PHASES OF DOING A DEAL Section */}
       <section
         id="phases-of-deal"
         className="relative py-12 lg:py-20 px-[15px] lg:px-[70px] bg-white"
@@ -427,7 +427,7 @@ export default function Forinvestors() {
           <div className="space-y-10 lg:space-y-[60px] flex flex-col items-center lg:items-start text-center lg:text-left">
             <div className="space-y-5 lg:space-y-[30px]">
               <p className="font-manrope text-[#0224e9] text-[14px] uppercase tracking-wide">
-                The Phase of Doing a Deal
+                THE PHASES OF DOING A DEAL
               </p>
               <h2 className="font-manrope font-medium text-[32px] lg:text-[64px] leading-[42px] lg:leading-[70px] text-black">
                 From the first call to beyond the signed{" "}
