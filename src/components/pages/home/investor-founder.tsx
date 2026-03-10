@@ -116,10 +116,10 @@ export default function InvestorFounder() {
             {/* Desktop */}
             <div className="hidden xl:block">
               <h4 className="text-3xl lg:text-4xl xl:text-[62px] max-w-4xl mx-auto font-extrabold text-[#333333]">
-                What Does Deal
+                What does deal
               </h4>
               <div className="relative inline-flex items-start gap-3 text-3xl lg:text-4xl xl:text-[62px] font-extrabold text-[#333333]">
-                <p>Origination</p>
+                <p>origination</p>
                 <div className="relative inline-flex items-start">
                   <p className="bg-[#c0c8f9] rounded-l-lg px-2">mean for you</p>
                   <Image
