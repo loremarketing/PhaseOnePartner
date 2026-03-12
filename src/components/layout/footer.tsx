@@ -44,7 +44,7 @@ export default function Footer() {
               </div>
             </div>
             <h3 className="text-[28px] sm:text-[24px] lg:text-[28px] font-inter font-bold text-primary mb-4">
-              Stay in the Loop
+              Stay in the loop
             </h3>
             <div className="flex w-full max-w-sm">
               <input

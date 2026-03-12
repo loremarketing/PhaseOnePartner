@@ -99,7 +99,7 @@ export default function FAQSectionFounders() {
   };
 
   return (
-    <section className="py-20 px-6 lg:px-16 bg-gradient-to-br from-muted/20 to-background relative overflow-hidden">
+    <section className="py-10 lg:py-20 px-6 lg:px-16 bg-gradient-to-br from-muted/20 to-background relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
@@ -123,10 +123,10 @@ export default function FAQSectionFounders() {
           {/* Left Column */}
           <div className="space-y-6">
             {faqs.slice(0, 2).map((faq) => (
-              <div key={faq.id} className="group flex flex-col items-center lg:items-start">
+              <div key={faq.id} className="group flex flex-col items-center lg:items-start bg-primary/5 rounded-2xl p-6 border border-primary/10">
                 <button
                   onClick={() => toggleFAQ(faq.id)}
-                  className="w-full flex items-center justify-center lg:justify-between py-6 hover:bg-muted/30 transition-all duration-200 rounded-lg px-4 -mx-4 border-b border-border/50 last:border-b-0 text-center lg:text-left"
+                  className="w-full flex items-center justify-center lg:justify-between text-center lg:text-left"
                 >
                   <h3 className="font-semibold text-foreground text-base md:text-lg pr-4 w-full text-center lg:text-left">
                     {faq.question}
@@ -138,13 +138,19 @@ export default function FAQSectionFounders() {
                   />
                 </button>
                 
-                {expandedFAQ === faq.id && (
-                  <div className="pb-6 animate-in slide-in-from-top-2 duration-200 w-full">
-                    <div className="text-muted-foreground leading-relaxed text-center lg:text-left space-y-3">
-                      {faq.answer}
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedFAQ === faq.id ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  {expandedFAQ === faq.id && (
+                    <div className="pb-6 w-full">
+                      <div className="text-muted-foreground leading-relaxed text-center lg:text-left space-y-3">
+                        {faq.answer}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -152,10 +158,10 @@ export default function FAQSectionFounders() {
           {/* Right Column */}
           <div className="space-y-6">
             {faqs.slice(2, 4).map((faq) => (
-              <div key={faq.id} className="group flex flex-col items-center lg:items-start">
+              <div key={faq.id} className="group flex flex-col items-center lg:items-start bg-primary/5 rounded-2xl p-6 border border-primary/10">
                 <button
                   onClick={() => toggleFAQ(faq.id)}
-                  className="w-full flex items-center justify-center lg:justify-between py-6 hover:bg-muted/30 transition-all duration-200 rounded-lg px-4 -mx-4 border-b border-border/50 last:border-b-0 text-center lg:text-left"
+                  className="w-full flex items-center justify-center lg:justify-between text-center lg:text-left"
                 >
                   <h3 className="font-semibold text-foreground text-base md:text-lg pr-4 w-full text-center lg:text-left">
                     {faq.question}
@@ -167,13 +173,19 @@ export default function FAQSectionFounders() {
                   />
                 </button>
                 
-                {expandedFAQ === faq.id && (
-                  <div className="pb-6 animate-in slide-in-from-top-2 duration-200 w-full">
-                    <div className="text-muted-foreground leading-relaxed text-center lg:text-left space-y-3">
-                      {faq.answer}
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedFAQ === faq.id ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  {expandedFAQ === faq.id && (
+                    <div className="pb-6 w-full">
+                      <div className="text-muted-foreground leading-relaxed text-center lg:text-left space-y-3">
+                        {faq.answer}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             ))}
           </div>

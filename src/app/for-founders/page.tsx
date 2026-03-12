@@ -228,7 +228,7 @@ export default function ForFounders() {
       </section>
 
       {/* What We Do Section */}
-      <section className="py-12 lg:py-24 mt-12 lg:mt-20 px-[15px] lg:px-[70px] bg-background">
+      <section className="py-0 lg:py-24 mt-12 lg:mt-20 px-[15px] lg:px-[70px] bg-background">
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div className="space-y-6 lg:space-y-[60px] text-center lg:text-left">
             <div className="space-y-5 lg:space-y-[40px]">

@@ -26,6 +26,7 @@ import {
   Award,
   ThumbsUp,
   Shield,
+  Phone,
 } from "lucide-react";
 import { HamburgerIcon } from "@/components/ui/hamburger-icon";
 
@@ -161,13 +162,11 @@ export default function Navbar({ isLight }: { isLight?: boolean }) {
 
   return (
     <header
-      className={`absolute text-foreground top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "" : ""
-      }`}
+      className={`${scrolled ? "fixed md:absolute" : "absolute"} top-0 left-0 right-0 z-50 transition-all duration-300`}
     >
       {/* Blue background for desktop */}
       
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-16 relative">
+      <div className={`max-w-[1600px] mx-auto px-6 lg:px-16 relative ${scrolled ? 'md:py-0 py-2' : ''}`}>
         <nav
           className={`${
             scrolled ? "" : ""
@@ -321,7 +320,7 @@ export default function Navbar({ isLight }: { isLight?: boolean }) {
           </div>
           
           {/* Mobile navbar wrapper */}
-          <div className="lg:hidden flex items-center justify-between bg-background px-6 py-4 rounded-full">
+          <div className={`lg:hidden flex items-center justify-between px-4 py-3 rounded-full bg-white shadow-md transition-all duration-300`}>
             {/* Mobile Logo */}
             <div className="flex">
               <Link href="/" className="-m-1.5 p-1.5 inline-block">
@@ -339,21 +338,32 @@ export default function Navbar({ isLight }: { isLight?: boolean }) {
             </div>
             
             {/* Mobile menu button */}
-            <button
-              type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <span className="sr-only">Toggle menu</span>
-              {mobileMenuOpen ? (
-                <X className="h-8 w-8 lg:h-6 lg:w-6 text-foreground" aria-hidden="true" />
-              ) : (
-                <HamburgerIcon
-                  className="h-8 w-8 lg:h-6 lg:w-6 text-primary"
-                  aria-hidden="true"
-                />
+            <div className="flex items-center gap-3">
+              {scrolled && (
+                <a
+                  href="tel:+1234567890"
+                  className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white"
+                  aria-label="Call us"
+                >
+                  <Phone className="h-5 w-5" />
+                </a>
               )}
-            </button>
+              <button
+                type="button"
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                <span className="sr-only">Toggle menu</span>
+                {mobileMenuOpen ? (
+                  <X className="h-8 w-8 lg:h-6 lg:w-6 text-foreground" aria-hidden="true" />
+                ) : (
+                  <HamburgerIcon
+                    className="h-8 w-8 lg:h-6 lg:w-6 text-primary"
+                    aria-hidden="true"
+                  />
+                )}
+              </button>
+            </div>
           </div>
         </nav>
       </div>

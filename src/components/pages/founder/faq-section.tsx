@@ -79,11 +79,11 @@ export default function FAQSection() {
             {faqs.slice(0, 3).map((faq) => (
               <div
                 key={faq.id}
-                className="group flex flex-col items-center lg:items-start"
+                className="group flex flex-col items-center lg:items-start bg-primary/5 rounded-2xl p-6 border border-primary/10"
               >
                 <button
                   onClick={() => toggleFAQ(faq.id)}
-                  className="w-full flex items-center justify-center lg:justify-between py-6 hover:bg-muted/30 transition-all duration-200 rounded-lg px-4 -mx-4 border-b border-border/50 last:border-b-0 text-center lg:text-left"
+                  className="w-full flex items-center justify-center lg:justify-between text-center lg:text-left"
                 >
                   <h3 className="font-semibold text-foreground text-base md:text-lg pr-4 w-full text-center lg:text-left">
                     {faq.question}
@@ -95,13 +95,19 @@ export default function FAQSection() {
                   />
                 </button>
 
-                {expandedFAQ === faq.id && (
-                  <div className="pb-6 animate-in slide-in-from-top-2 duration-200 w-full">
-                    <p className="text-muted-foreground leading-relaxed text-center lg:text-left">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedFAQ === faq.id ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  {expandedFAQ === faq.id && (
+                    <div className="pb-6 w-full">
+                      <p className="text-muted-foreground leading-relaxed text-center lg:text-left">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -111,11 +117,11 @@ export default function FAQSection() {
             {faqs.slice(3, 6).map((faq) => (
               <div
                 key={faq.id}
-                className="group flex flex-col items-center lg:items-start"
+                className="group flex flex-col items-center lg:items-start bg-primary/5 rounded-2xl p-6 border border-primary/10"
               >
                 <button
                   onClick={() => toggleFAQ(faq.id)}
-                  className="w-full flex items-center justify-center lg:justify-between py-6 hover:bg-muted/30 transition-all duration-200 rounded-lg px-4 -mx-4 border-b border-border/50 last:border-b-0 text-center lg:text-left"
+                  className="w-full flex items-center justify-center lg:justify-between text-center lg:text-left"
                 >
                   <h3 className="font-semibold text-foreground text-base md:text-lg pr-4 w-full text-center lg:text-left">
                     {faq.question}
@@ -127,13 +133,19 @@ export default function FAQSection() {
                   />
                 </button>
 
-                {expandedFAQ === faq.id && (
-                  <div className="pb-6 animate-in slide-in-from-top-2 duration-200 w-full">
-                    <p className="text-muted-foreground leading-relaxed text-center lg:text-left">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedFAQ === faq.id ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  {expandedFAQ === faq.id && (
+                    <div className="pb-6 w-full">
+                      <p className="text-muted-foreground leading-relaxed text-center lg:text-left">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>

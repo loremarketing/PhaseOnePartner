@@ -195,7 +195,7 @@ export default function HomeVideo() {
   };
 
   return (
-    <section className="pb-40 pt-6">
+    <section className="pb-10 lg:pb-40 pt-6">
       <div
         ref={containerRef}
         className="relative max-w-4xl px-6 lg:px-0 mx-auto h-fit cursor-pointer group overflow-hidden"

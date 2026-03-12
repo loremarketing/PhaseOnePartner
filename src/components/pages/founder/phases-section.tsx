@@ -124,13 +124,19 @@ export default function PhasesSection() {
                       />
                     </button>
                     
-                    {expandedPhase === phase.id && (
-                      <div className="pb-4 ml-10 animate-in slide-in-from-top-2 duration-200">
-                        <p className="text-normal text-foreground leading-relaxed bg-muted/30 p-3 rounded-lg">
-                          {phase.description}
-                        </p>
-                      </div>
-                    )}
+                    <div 
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        expandedPhase === phase.id ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                      {expandedPhase === phase.id && (
+                        <div className="pb-4 ml-10">
+                          <p className="text-normal text-foreground leading-relaxed bg-muted/30 p-3 rounded-lg">
+                            {phase.description}
+                          </p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
