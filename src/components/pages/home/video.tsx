@@ -201,6 +201,24 @@ export default function HomeVideo() {
         className="relative max-w-4xl px-6 lg:px-0 mx-auto h-fit cursor-pointer group overflow-hidden"
         id="video-container"
       >
+        {/* Play Button Overlay */}
+        {!isPlaying && (
+          <div 
+            className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors"
+            onClick={handleVideoClick}
+          >
+            <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full bg-white/90 shadow-lg hover:scale-110 transition-transform">
+              <Image 
+                src="/icons/play-video-icon.svg" 
+                alt="Play Video" 
+                width={32} 
+                height={32}
+                className="ml-1 sm:w-10 sm:h-10"
+              />
+            </div>
+          </div>
+        )}
+
         {/* Video element */}
         <video
           ref={videoRef}
@@ -210,7 +228,7 @@ export default function HomeVideo() {
           loop
           muted={true} // Always start muted
           playsInline
-          controls={false} // No controls on any device
+          controls={hasUserInteracted} // Show controls only after first interaction
           preload="metadata"
           poster="/images/thumbnail.png" // Using poster attribute for thumbnail
           style={{
