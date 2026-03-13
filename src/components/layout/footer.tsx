@@ -68,7 +68,7 @@ export default function Footer() {
             {/* PhaseOne Partners */}
             <div className="text-center lg:text-left">
               <h4 className="font-extrabold text-[16px] sm:text-[18px] lg:text-[28px] mb-4 sm:mb-6 lg:mb-8">
-                PhaseOne Partnerss
+                PhaseOne Partners
               </h4>
               <ul className="space-y-1 sm:space-y-2">
                 <li>
