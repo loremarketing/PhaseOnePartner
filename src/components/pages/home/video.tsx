@@ -52,7 +52,6 @@ export default function HomeVideo() {
           opacity: newIsLargeScreen ? 0 : 1,
           scale: newIsLargeScreen ? 0.3 : 1,
           borderRadius: newIsLargeScreen ? "16px" : "0px",
-          paddingTop: newIsLargeScreen ? "0px" : "4vw",
         });
       }
     };
@@ -66,12 +65,10 @@ export default function HomeVideo() {
         {
           scale: 0.3,
           borderRadius: "16px",
-          paddingTop: "0px",
         },
         {
           scale: 1,
           borderRadius: "0px",
-          paddingTop: "4vw",
           duration: 1,
           ease: "none",
           scrollTrigger: {
@@ -88,7 +85,6 @@ export default function HomeVideo() {
         opacity: 1,
         scale: 1,
         borderRadius: "0px",
-        paddingTop: "4vw",
       });
     }
   }, []);
@@ -195,26 +191,26 @@ export default function HomeVideo() {
   };
 
   return (
-    <section className="pb-10 lg:pb-40 pt-6">
+    <section className="pb-10 lg:pb-40 pt-0">
       <div
         ref={containerRef}
-        className="relative max-w-4xl px-6 lg:px-0 mx-auto h-fit cursor-pointer group overflow-hidden"
+        className="relative max-w-4xl px-6 lg:px-0 mx-auto h-fit cursor-pointer group overflow-hidden bg-transparent"
         id="video-container"
       >
         {/* Play Button Overlay */}
         {!isPlaying && (
           <div 
-            className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors"
+            className="absolute inset-0 z-10 flex items-center justify-center transition-colors"
             onClick={handleVideoClick}
           >
-            <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full bg-white/90 shadow-lg hover:scale-110 transition-transform">
-              <Image 
-                src="/icons/play-video-icon.svg" 
-                alt="Play Video" 
-                width={32} 
-                height={32}
-                className="ml-1 sm:w-10 sm:h-10"
-              />
+            <div className="w-24 h-24 flex items-center justify-center hover:scale-110 transition-transform">
+              <svg 
+                viewBox="0 0 24 24"
+                className="w-20 h-20 fill-[#0224E9] drop-shadow-md"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
             </div>
           </div>
         )}
@@ -222,7 +218,7 @@ export default function HomeVideo() {
         {/* Video element */}
         <video
           ref={videoRef}
-          className="w-full h-fit max-w-4xl mx-auto rounded-2xl poster aspect-video"
+          className="w-full h-fit max-w-4xl mx-auto rounded-2xl poster aspect-video bg-transparent"
           onClick={handleVideoClick}
           onTouchEnd={handleVideoClick}
           loop
@@ -234,6 +230,7 @@ export default function HomeVideo() {
           style={{
             objectFit: "contain",
             objectPosition: "center",
+            backgroundColor: "transparent",
           }}
         >
           <source src="/PhaseOne-Hero-Video.mp4" type="video/mp4" />

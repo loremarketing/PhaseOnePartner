@@ -7,12 +7,10 @@ import { useState } from "react";
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("idle");
-    setErrorMessage("");
 
     try {
       const response = await fetch("/api/send", {
@@ -23,18 +21,14 @@ export default function Footer() {
         body: JSON.stringify({ email, message: "Stay in the loop" }),
       });
 
-      const data = await response.json();
-
       if (response.ok) {
         setStatus("success");
         setEmail("");
       } else {
         setStatus("error");
-        setErrorMessage(data.error || "Something went wrong. Please try again.");
       }
     } catch (error) {
       setStatus("error");
-      setErrorMessage("Network error. Please check your connection.");
     }
   };
   return (
@@ -101,7 +95,7 @@ export default function Footer() {
               <p className="text-green-500 mt-2">Thanks for subscribing!</p>
             )}
             {status === "error" && (
-              <p className="text-red-500 mt-2">{errorMessage}</p>
+              <p className="text-red-500 mt-2">Something went wrong. Please try again.</p>
             )}
           </div>
 
