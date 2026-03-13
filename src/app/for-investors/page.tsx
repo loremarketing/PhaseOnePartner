@@ -59,7 +59,7 @@ export default function Forinvestors() {
       number: "01.",
       title: "Mandate and calibration",
       description:
-        "Conversations start with deep industry research and alignment with yOur key objectives. From there, we build a target map, and identify key next steps.",
+        "Conversations start with deep industry research and alignment with your key objectives. From there, we build a target map, and identify key next steps.",
       duration: "1–2 weeks",
     },
     {

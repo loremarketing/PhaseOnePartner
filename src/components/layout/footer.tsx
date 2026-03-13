@@ -106,10 +106,10 @@ export default function Footer() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 w-full lg:w-auto justify-items-center lg:justify-items-start">
-            {/* PhaseOne Partnerss */}
+            {/* PhaseOne Partners */}
             <div className="text-center lg:text-left">
               <h4 className="font-extrabold text-[16px] sm:text-[18px] lg:text-[28px] mb-4 sm:mb-6 lg:mb-8">
-                PhaseOne Partnerss
+                PhaseOne Partners
               </h4>
               <ul className="space-y-1 sm:space-y-2">
                 <li>
@@ -242,7 +242,7 @@ export default function Footer() {
           <p className="italic text-sm sm:text-base font-inter leading-relaxed">
             PhaseOne Partners provides origination and introduction services
             only. We work exclusively with wholesale capital partners, such as private
-            equity funds, and our role is limited to facilitating connections
+            equity funds, and our role is limited to facilitate connections
             with businesses. We do not provide financial product advice, recommendations, or deal
             structuring services. All investment assessments and decisions are
             made independently by the fund, or manager.
