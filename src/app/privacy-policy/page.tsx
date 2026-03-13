@@ -1,8 +1,8 @@
 import Navbar from "@/components/layout/navbar";
 
 export const metadata = {
-  title: "Privacy Policy - PhaseOne Partners",
-  description: "Privacy Policy for PhaseOne Partners",
+  title: "Privacy Policy - PhaseOne ",
+  description: "Privacy Policy for PhaseOne ",
 };
 
 export default function PrivacyPolicyPage() {
@@ -30,7 +30,7 @@ export default function PrivacyPolicyPage() {
                   1. Introduction
                 </h2>
                 <p className="font-inter text-base lg:text-lg text-[#333333] leading-relaxed mb-4">
-                  PhaseOne Partners ("we", "us", "our") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, store, disclose, and safeguard information across our advisory services, events, newsletters, and digital platforms.
+                  PhaseOne  ("we", "us", "our") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, store, disclose, and safeguard information across our advisory services, events, newsletters, and digital platforms.
                 </p>
                 <p className="font-inter text-base lg:text-lg text-[#333333] leading-relaxed">
                   We comply with the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs). Where relevant, we also consider international standards (such as the EU's General Data Protection Regulation) to ensure best practice for clients with global interests.
@@ -67,7 +67,7 @@ export default function PrivacyPolicyPage() {
                 <ul className="font-inter text-base lg:text-lg text-[#333333] leading-relaxed space-y-2 list-disc list-inside ml-4">
                   <li><strong>Direct interactions:</strong> When you engage our services, attend events, sign up for newsletters, or communicate with us.</li>
                   <li><strong>Digital platforms:</strong> When you use our websites, online tools, or client portals.</li>
-                  <li><strong>Third parties:</strong> Where permitted, from publicly available sources, business partners, or service providers.</li>
+                  <li><strong>Third parties:</strong> Where permitted, from publicly available sources, business , or service providers.</li>
                   <li><strong>Automated technologies:</strong> Cookies and analytics tools when you visit our websites.</li>
                 </ul>
               </div>
@@ -100,8 +100,8 @@ export default function PrivacyPolicyPage() {
                   We may disclose information to:
                 </p>
                 <ul className="font-inter text-base lg:text-lg text-[#333333] leading-relaxed space-y-2 list-disc list-inside ml-4 mb-4">
-                  <li>Trusted affiliates or service providers of PhaseOne Partners</li>
-                  <li>Event partners and co-hosts, only as necessary for event participation.</li>
+                  <li>Trusted affiliates or service providers of PhaseOne </li>
+                  <li>Event  and co-hosts, only as necessary for event participation.</li>
                   <li>Professional advisers (lawyers, accountants, auditors) bound by confidentiality.</li>
                   <li>Regulatory or legal authorities, where required by law.</li>
                 </ul>
@@ -120,7 +120,7 @@ export default function PrivacyPolicyPage() {
                 </h2>
                 <ul className="font-inter text-base lg:text-lg text-[#333333] leading-relaxed space-y-2 list-disc list-inside ml-4">
                   <li>You may receive newsletters, event invitations, or industry updates from us.</li>
-                  <li>You can unsubscribe at any time using the link in our emails or by contactingPhaseOne Partnersdirectly.</li>
+                  <li>You can unsubscribe at any time using the link in our emails or by contacting PhaseOne  directly.</li>
                   <li>We will not add you to marketing lists without your consent.</li>
                 </ul>
               </div>
@@ -191,17 +191,17 @@ export default function PrivacyPolicyPage() {
                 </p>
               </div>
 
-              {/* Section 13: ContactPhaseOne Partners*/}
+              {/* Section 13: ContactPhaseOne */}
               <div className="bg-white rounded-lg p-6 lg:p-8 shadow-sm border border-gray-100">
                 <h2 className="font-manrope font-bold text-2xl lg:text-3xl text-[#333333] mb-4">
-                  13. PhaseOne Partners
+                  13. PhaseOne 
                 </h2>
                 <p className="font-inter text-base lg:text-lg text-[#333333] leading-relaxed mb-4">
                   For questions, concerns, or requests regarding your privacy:
                 </p>
                 <div className="space-y-2 font-inter text-base lg:text-lg text-[#333333]">
                   <p>
-                    <strong>PhaseOne Partners</strong>
+                    <strong>PhaseOne </strong>
                   </p>
                   <p>
                     <strong>Contact:</strong> Lincoln Stollery, Founder and Managing Director
@@ -209,21 +209,21 @@ export default function PrivacyPolicyPage() {
                   <p>
                     <strong>Website:</strong>{" "}
                     <a 
-                      href="https://www.phaseonepartners.com.au" 
+                      href="https://www.phaseone.com.au" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-primary hover:underline"
                     >
-                      www.phaseonepartners.com.au
+                      www.phaseone.com.au
                     </a>
                   </p>
                   <p>
                     <strong>Email:</strong>{" "}
                     <a 
-                      href="mailto:info@phaseonepartners.com.au" 
+                      href="mailto:info@phaseone.com.au" 
                       className="text-primary hover:underline"
                     >
-                      info@phaseonepartners.com.au
+                      info@phaseone.com.au
                     </a>
                   </p>
                   <p>
