@@ -2,8 +2,41 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("idle");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, message: "Stay in the loop" }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        setStatus("error");
+        setErrorMessage(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage("Network error. Please check your connection.");
+    }
+  };
   return (
     <footer className="bg-[#F9F9F9] py-8 sm:py-12 lg:pt-24 mb-6 px-4 sm:px-6 lg:px-16">
       <div className="max-w-7xl mx-auto">
@@ -46,13 +79,15 @@ export default function Footer() {
             <h3 className="text-[28px] sm:text-[24px] lg:text-[28px] font-inter font-bold text-primary mb-4">
               Stay in the loop
             </h3>
-            <div className="flex w-full max-w-sm">
+            <form onSubmit={handleSubmit} className="flex w-full max-w-sm">
               <input
                 type="email"
                 placeholder="Enter Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="px-3 sm:px-4 py-2 text-[16px] border rounded-l-lg focus:outline-none flex-1 min-w-0"
               />
-              <div className="cursor-pointer bg-primary rounded-r-lg px-4 py-3 flex items-center justify-center">
+              <button type="submit" className="cursor-pointer bg-primary rounded-r-lg px-4 py-3 flex items-center justify-center">
                 <Image
                   src="/icons/right-long-arrow.svg"
                   alt="right arrow"
@@ -60,8 +95,14 @@ export default function Footer() {
                   height={50}
                   className="w-fit h-4"
                 />
-              </div>
-            </div>
+              </button>
+            </form>
+            {status === "success" && (
+              <p className="text-green-500 mt-2">Thanks for subscribing!</p>
+            )}
+            {status === "error" && (
+              <p className="text-red-500 mt-2">{errorMessage}</p>
+            )}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 w-full lg:w-auto justify-items-center lg:justify-items-start">

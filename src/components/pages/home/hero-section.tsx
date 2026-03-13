@@ -1,48 +1,8 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import AnimatedButton from "@/components/ui/animated-button";
 import Image from "next/image";
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
 
 export default function HeroSection() {
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const arrowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const buttonElement = buttonRef.current;
-    const arrowElement = arrowRef.current;
-
-    if (!buttonElement || !arrowElement) return;
-
-    const handleMouseEnter = () => {
-      gsap.to(arrowElement, {
-        right: "-3.2rem",
-        opacity: 1,
-        duration: 0.5,
-        ease: "power2.out",
-      });
-    };
-
-    const handleMouseLeave = () => {
-      gsap.to(arrowElement, {
-        right: "0rem",
-        zIndex: -1,
-        duration: 0.5,
-        opacity: 0,
-        ease: "power2.out",
-      });
-    };
-
-    buttonElement.addEventListener("mouseenter", handleMouseEnter);
-    buttonElement.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      buttonElement.removeEventListener("mouseenter", handleMouseEnter);
-      buttonElement.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
-
   return (
     <section className="w-full h-full pt-28 lg:pt-40 pb-32 lg:pb-36 max-w-[1800px] mx-auto px-6 lg:px-16 lg:min-h-screen [@media(min-width:1600px)]:min-h-auto relative z-10 bg-[#f0f0f0]">
       <div className="absolute bottom-0 inset-x-0 lg:inset-x-auto lg:right-0 lg:w-[80vw] w-full h-full max-h-[100vh] z-0">

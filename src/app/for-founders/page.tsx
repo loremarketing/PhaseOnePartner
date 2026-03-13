@@ -252,13 +252,12 @@ export default function ForFounders() {
                 so you can stay focused on driving your business forward.
               </p>
             </div>
-            <div className="flex justify-center lg:justify-start">
-              <Button
-                className="bg-[#0224e9] text-white hover:bg-[#0224e9]/90 rounded-full px-[22px] py-[10px] h-[44px] lg:h-[48px] text-[12px] lg:text-[18px] font-manrope font-medium"
-                asChild
-              >
-                <Link href="#phases-of-deal">Learn how we help</Link>
-              </Button>
+            <div className="flex justify-center lg:justify-start pt-4">
+              <AnimatedButton
+                text="Learn how we help"
+                href="#phases-of-deal"
+                variant="primary"
+              />
             </div>
           </div>
           <div className="relative z-10 h-[431px] lg:h-full w-full rounded-[12px] overflow-hidden">
@@ -400,13 +399,12 @@ export default function ForFounders() {
                 succession partner.
               </p>
             </div>
-            <div className="flex justify-center lg:justify-start">
-              <Button
-                className="bg-[#0224e9] text-white hover:bg-[#0224e9]/90 rounded-full px-[22px] py-[10px] h-[44px] lg:h-[48px] text-[12px] lg:text-[18px] font-manrope font-medium"
-                asChild
-              >
-                <Link href="/contact"> Get started today</Link>
-              </Button>
+            <div className="flex justify-center lg:justify-start pt-4">
+              <AnimatedButton
+                text="Get started today"
+                href="/contact"
+                variant="primary"
+              />
             </div>
           </div>
 
@@ -484,13 +482,13 @@ export default function ForFounders() {
               help you understand whether there's real conviction behind your
               sector. You'll have immediate clarity on next steps.
             </p>
-            <div className="flex justify-center">
-              <Button
-                className="bg-white text-[#0224e9] hover:bg-[#0224e9] hover:text-white transition-colors rounded-full px-[22px] py-[10px] h-[44px] lg:h-[48px] text-[12px] lg:text-[18px] font-manrope font-medium"
-                asChild
-              >
-                <Link href="/contact"> Get started today</Link>
-              </Button>
+            <div className="flex justify-center pt-4">
+              <AnimatedButton
+                text="Get started today"
+                href="/contact"
+                variant="inverse"
+                className="mx-auto"
+              />
             </div>
           </div>
         </div>

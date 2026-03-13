@@ -33,18 +33,17 @@ export default function AnimatedButton({
 
     const handleMouseEnter = () => {
       gsap.to(arrowElement, {
-        right: "-3.2rem",
+        x: "3.2rem",
         opacity: 1,
-        duration: 0.5,
+        duration: 0.3,
         ease: "power2.out",
       });
     };
 
     const handleMouseLeave = () => {
       gsap.to(arrowElement, {
-        right: "0rem",
-        zIndex: -1,
-        duration: 0.5,
+        x: "0rem",
+        duration: 0.3,
         opacity: 0,
         ease: "power2.out",
       });
@@ -92,7 +91,7 @@ export default function AnimatedButton({
       )}
       <div
         ref={arrowRef}
-        className="hidden md:block absolute right-0 cursor-pointer"
+        className="hidden md:block absolute left-full ml-[-2.5rem] cursor-pointer pointer-events-none will-change-transform"
       >
         <Image
           src={`/icons/${variant === "inverse" ? "right-white" : "right"}.svg`}
