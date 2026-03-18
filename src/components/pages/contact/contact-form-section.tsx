@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // Import useRouter
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -8,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function ContactFormSection() {
+  const router = useRouter(); // Get router instance
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -45,14 +47,7 @@ export default function ContactFormSection() {
       });
 
       if (response.ok) {
-        setSubmitStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          company: "",
-          message: "",
-        });
+        router.push("/thank-you"); // Redirect on success
       } else {
         setSubmitStatus("error");
       }
@@ -218,14 +213,7 @@ export default function ContactFormSection() {
                 />
               </div>
 
-              {submitStatus === "success" && (
-                <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-green-800 font-inter text-sm">
-                    Thank you! Your message has been sent successfully. We'll
-                    get back to you soon.
-                  </p>
-                </div>
-              )}
+
 
               {submitStatus === "error" && (
                 <div className="p-4 bg-red-50 border border-red-200 rounded-lg">

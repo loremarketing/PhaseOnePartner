@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="w-full h-full pt-28 lg:pt-40 pb-32 lg:pb-36 max-w-[1800px] mx-auto px-6 lg:px-16 lg:min-h-screen [@media(min-width:1600px)]:min-h-auto relative z-10 bg-[#f0f0f0]">
+    <section className="w-full h-full pt-28 pb-32 max-w-[1800px] mx-auto px-6 lg:px-16 lg:min-h-screen [@media(min-width:1600px)]:min-h-auto relative z-10 bg-[#f0f0f0] lg:flex lg:items-center">
       <div className="absolute bottom-0 inset-x-0 lg:inset-x-auto lg:right-0 lg:w-[80vw] w-full h-full max-h-[100vh] z-0">
         <div className="w-full h-full relative">
           <Image
