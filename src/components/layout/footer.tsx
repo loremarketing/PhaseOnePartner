@@ -249,7 +249,7 @@ export default function Footer() {
             © 2026 PhaseOne Partners. All Rights Reserved
           </div>
           <div className="text-[12px] sm:text-[16px] font-inter font-medium text-center">
-            Website Designed and Built by{" "}
+            Website Designed . and Built by{" "}
             <Link
               href="https://loremarketing.com.au"
               target="_blank"
