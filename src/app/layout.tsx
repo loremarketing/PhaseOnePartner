@@ -5,6 +5,7 @@ import Footer from "@/components/layout/footer";
 import SmoothScrolling from "@/components/smooth-scrolling";
 import { ThemeProvider } from "@/components/theme-provided";
 import StickyDiscoveryButton from "@/components/ui/sticky-discovery-button";
+import { Analytics } from "@vercel/analytics/next";
 
 const bricol = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -119,6 +120,7 @@ fbq('track', 'PageView');
           <Footer />
         </SmoothScrolling>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
