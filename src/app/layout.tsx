@@ -69,6 +69,16 @@ export default function RootLayout({
             gtag('js', new Date());
 
             gtag('config', 'G-2ZP6XTM3SH');
+            gtag('config', 'AW-17539389650');
+          `}
+        </Script>
+        <Script id="gtm" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MWJS3BXW');
           `}
         </Script>
         <script
@@ -87,6 +97,18 @@ fbq('track', 'PageView');
             `,
           }}
         />
+      </head>
+      <body
+        className={`${bricol.variable} ${manrope.variable} ${poppins.variable} ${lato.variable} ${inter.variable} antialiased`}
+      >
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MWJS3BXW"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
         <noscript>
           <img
             height="1"
@@ -96,10 +118,6 @@ fbq('track', 'PageView');
             alt=""
           />
         </noscript>
-      </head>
-      <body
-        className={`${bricol.variable} ${manrope.variable} ${poppins.variable} ${lato.variable} ${inter.variable} antialiased`}
-      >
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
