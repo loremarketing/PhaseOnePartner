@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Manrope, Poppins, Lato, Inter } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  Manrope,
+  Poppins,
+  Lato,
+  Inter,
+} from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/footer";
 import SmoothScrolling from "@/components/smooth-scrolling";
 import { ThemeProvider } from "@/components/theme-provided";
 import StickyDiscoveryButton from "@/components/ui/sticky-discovery-button";
+import Script from "next/script";
 
 const bricol = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -50,6 +57,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-2ZP6XTM3SH"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-2ZP6XTM3SH');
+          `}
+        </Script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -76,18 +97,20 @@ fbq('track', 'PageView');
           />
         </noscript>
       </head>
-      <body className={`${bricol.variable} ${manrope.variable} ${poppins.variable} ${lato.variable} ${inter.variable} antialiased`}>
+      <body
+        className={`${bricol.variable} ${manrope.variable} ${poppins.variable} ${lato.variable} ${inter.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
-        <SmoothScrolling>
-          <StickyDiscoveryButton />
-          {children}
-          <Footer />
-        </SmoothScrolling>
+          <SmoothScrolling>
+            <StickyDiscoveryButton />
+            {children}
+            <Footer />
+          </SmoothScrolling>
         </ThemeProvider>
       </body>
     </html>
