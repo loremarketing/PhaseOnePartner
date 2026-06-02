@@ -103,7 +103,7 @@ export default function ForFounders() {
   const heroImages = [
     "/bg/partners-for-growth-hero-bg.png",
     "/foreman-or-worker-work-at-factory.jpg",
-    "/founder-optimized-images/skilled-mechanic-working-on-large-truck-repair-2025-10-08-10-22-08-utc_11zon.webp",
+    "/about/about-updated-images/founder-updated-images/skilled-mechanic-working-on-large-truck-repair-2025-10-08-10-22-08-utc_11zon.webp",
     "/car-technician-check-engines-choose-quality-gear-2026-01-07-02-19-59-utc (1).jpg",
   ];
 
@@ -155,7 +155,7 @@ export default function ForFounders() {
                 loading="eager"
               />
               <LazyBackgroundImage
-                src="/founder-optimized-images/grape-harvest-2025-02-21-17-07-43-utc_11zon.webp"
+                src="/about/about-updated-images/founder-updated-images/grape-harvest-2025-02-21-17-07-43-utc_11zon.webp"
                 className="w-full h-[72px] md:h-[236px] md:rounded-t-[12px] rounded-t-[6px]"
                 style={{
                   backgroundSize: "cover",
@@ -168,7 +168,7 @@ export default function ForFounders() {
             {/* 2nd column  */}
             <div className="flex flex-col items-center justify-end w-[40%]">
               <LazyBackgroundImage
-                src="/founder-optimized-images/skilled-mechanic-working-on-large-truck-repair-2025-10-08-10-22-08-utc_11zon.webp"
+                src="/about/about-updated-images/founder-updated-images/skilled-mechanic-working-on-large-truck-repair-2025-10-08-10-22-08-utc_11zon.webp"
                 className="w-full h-[80%] md:rounded-t-[12px] rounded-t-[6px]"
                 style={{
                   backgroundSize: "cover",
@@ -190,7 +190,7 @@ export default function ForFounders() {
                 loading="lazy"
               />
               <LazyBackgroundImage
-                src="/founder-optimized-images/senior-male-warehouse-worker-or-a-supervisor-unloa-2025-10-09-08-16-48-utc_11zon.webp"
+                src="/about/about-updated-images/founder-updated-images/senior-male-warehouse-worker-or-a-supervisor-unloa-2025-10-09-08-16-48-utc_11zon.webp"
                 className="w-full h-[72px] md:h-[236px] md:rounded-t-[12px] rounded-t-[6px]"
                 style={{
                   backgroundSize: "cover",
@@ -203,7 +203,7 @@ export default function ForFounders() {
             {/* absolute position left right images */}
             <div className="absolute top-1/2 -translate-y-1/2 md:left-[-270px] left-[-295px]">
               <LazyBackgroundImage
-                src="/founder-optimized-images/technician-installing-air-conditioning-unit-at-res-2025-03-16-03-53-07-utc_11zon.webp"
+                src="/about/about-updated-images/founder-updated-images/technician-installing-air-conditioning-unit-at-res-2025-03-16-03-53-07-utc_11zon.webp"
                 className="w-[300px] h-[72px] md:h-[236px] md:rounded-[12px] rounded-[6px]"
                 style={{
                   backgroundSize: "cover",
