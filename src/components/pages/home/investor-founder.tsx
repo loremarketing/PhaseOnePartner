@@ -60,7 +60,8 @@ export default function InvestorFounder() {
         trigger: mobileHighlight,
         start: "top 80%",
         end: "top 50%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
+        once: true,
       },
     });
 
@@ -78,7 +79,7 @@ export default function InvestorFounder() {
         y: 0,
         duration: 0.8,
         ease: "back.out(1.7)",
-      }
+      },
     );
 
     // Animate highlight text
@@ -96,7 +97,7 @@ export default function InvestorFounder() {
         duration: 0.6,
         ease: "power2.out",
       },
-      "-=0.4" // Start slightly before tag animation ends
+      "-=0.4", // Start slightly before tag animation ends
     );
 
     return () => {
