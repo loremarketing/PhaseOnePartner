@@ -36,27 +36,30 @@
   --sidebar-accent-foreground: oklch(0.2101 0.0318 264.6645);
   --sidebar-border: oklch(0.9276 0.0058 264.5313);
   --sidebar-ring: oklch(0.443 0.2784 264.35);
-  --font-bricolage-grotesque: var(--font-bricolage-grotesque), Bricolage Grotesque,
-    ui-sans-serif, sans-serif, system-ui;
+  --font-bricolage-grotesque:
+    var(--font-bricolage-grotesque), Bricolage Grotesque, ui-sans-serif,
+    sans-serif, system-ui;
   --font-serif: serif;
-  --font-manrope: var(--font-manrope), Manrope, ui-sans-serif, sans-serif, system-ui;
-  --font-poppins: var(--font-poppins), Poppins, ui-sans-serif, sans-serif, system-ui;
+  --font-manrope:
+    var(--font-manrope), Manrope, ui-sans-serif, sans-serif, system-ui;
+  --font-poppins:
+    var(--font-poppins), Poppins, ui-sans-serif, sans-serif, system-ui;
   --font-lato: var(--font-lato), Lato, ui-sans-serif, sans-serif, system-ui;
   --font-mono: JetBrains Mono, monospace;
   --font-inter: var(--font-inter), Inter, ui-sans-serif, sans-serif, system-ui;
   --radius: 0.75rem;
   --shadow-2xs: 0px 1px 4px 0px hsl(0 0% 0% / 0.03);
   --shadow-xs: 0px 1px 4px 0px hsl(0 0% 0% / 0.03);
-  --shadow-sm: 0px 1px 4px 0px hsl(0 0% 0% / 0.05),
-    0px 1px 2px -1px hsl(0 0% 0% / 0.05);
-  --shadow: 0px 1px 4px 0px hsl(0 0% 0% / 0.05),
-    0px 1px 2px -1px hsl(0 0% 0% / 0.05);
-  --shadow-md: 0px 1px 4px 0px hsl(0 0% 0% / 0.05),
-    0px 2px 4px -1px hsl(0 0% 0% / 0.05);
-  --shadow-lg: 0px 1px 4px 0px hsl(0 0% 0% / 0.05),
-    0px 4px 6px -1px hsl(0 0% 0% / 0.05);
-  --shadow-xl: 0px 1px 4px 0px hsl(0 0% 0% / 0.05),
-    0px 8px 10px -1px hsl(0 0% 0% / 0.05);
+  --shadow-sm:
+    0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
+  --shadow:
+    0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
+  --shadow-md:
+    0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 2px 4px -1px hsl(0 0% 0% / 0.05);
+  --shadow-lg:
+    0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 4px 6px -1px hsl(0 0% 0% / 0.05);
+  --shadow-xl:
+    0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 8px 10px -1px hsl(0 0% 0% / 0.05);
   --shadow-2xl: 0px 1px 4px 0px hsl(0 0% 0% / 0.13);
   --tracking-normal: 0rem;
   --spacing: 0.25rem;
@@ -95,27 +98,30 @@
   --sidebar-accent-foreground: oklch(0.8109 0 0);
   --sidebar-border: oklch(0.252 0 0);
   --sidebar-ring: oklch(0.7214 0.1337 49.9802);
-  --font-bricolage-grotesque: var(--font-bricolage-grotesque), Bricolage Grotesque,
-    ui-sans-serif, sans-serif, system-ui;
+  --font-bricolage-grotesque:
+    var(--font-bricolage-grotesque), Bricolage Grotesque, ui-sans-serif,
+    sans-serif, system-ui;
   --font-serif: serif;
-  --font-manrope: var(--font-manrope), Manrope, ui-sans-serif, sans-serif, system-ui;
-  --font-poppins: var(--font-poppins), Poppins, ui-sans-serif, sans-serif, system-ui;
+  --font-manrope:
+    var(--font-manrope), Manrope, ui-sans-serif, sans-serif, system-ui;
+  --font-poppins:
+    var(--font-poppins), Poppins, ui-sans-serif, sans-serif, system-ui;
   --font-lato: var(--font-lato), Lato, ui-sans-serif, sans-serif, system-ui;
   --font-mono: JetBrains Mono, monospace;
-  --font-inter: var(--font-inter), Inter, ui-sans-serif, sans-serif, system-ui; 
+  --font-inter: var(--font-inter), Inter, ui-sans-serif, sans-serif, system-ui;
   --radius: 0.75rem;
   --shadow-2xs: 0px 1px 4px 0px hsl(0 0% 0% / 0.03);
   --shadow-xs: 0px 1px 4px 0px hsl(0 0% 0% / 0.03);
-  --shadow-sm: 0px 1px 4px 0px hsl(0 0% 0% / 0.05),
-    0px 1px 2px -1px hsl(0 0% 0% / 0.05);
-  --shadow: 0px 1px 4px 0px hsl(0 0% 0% / 0.05),
-    0px 1px 2px -1px hsl(0 0% 0% / 0.05);
-  --shadow-md: 0px 1px 4px 0px hsl(0 0% 0% / 0.05),
-    0px 2px 4px -1px hsl(0 0% 0% / 0.05);
-  --shadow-lg: 0px 1px 4px 0px hsl(0 0% 0% / 0.05),
-    0px 4px 6px -1px hsl(0 0% 0% / 0.05);
-  --shadow-xl: 0px 1px 4px 0px hsl(0 0% 0% / 0.05),
-    0px 8px 10px -1px hsl(0 0% 0% / 0.05);
+  --shadow-sm:
+    0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
+  --shadow:
+    0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
+  --shadow-md:
+    0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 2px 4px -1px hsl(0 0% 0% / 0.05);
+  --shadow-lg:
+    0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 4px 6px -1px hsl(0 0% 0% / 0.05);
+  --shadow-xl:
+    0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 8px 10px -1px hsl(0 0% 0% / 0.05);
   --shadow-2xl: 0px 1px 4px 0px hsl(0 0% 0% / 0.13);
 }
 
@@ -279,4 +285,168 @@ $green-spring: rgba(183,188,180,1); */
 
 .text-shadow-foreground {
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------------------------------------------------------------------------
+   home-v4 navbar — the full pill morphs into the CTA button as the page scrolls.
+   `--shrink` / `--fade` (0 → 1) are written to the header element by a
+   rAF-throttled scroll listener, so the morph tracks scroll position directly
+   rather than snapping at a threshold. Desktop only; mobile keeps the plain pill.
+   Unlayered on purpose: these must override Tailwind's layered utilities.
+
+   Three things the pill and the button must agree on, or the morph tears:
+     - the pill's collapse target is `--btn-w-end`, the button's FINAL width;
+     - the pill's white background is tied to `--fade` (the same ramp as the
+       logo and links) rather than to `--shrink`. Tying it to the collapse left
+       a wide empty white bar with the button stranded at its right edge;
+     - width/colour are BOTH scroll-driven and hover-driven, so their transitions
+       are switched off while scrolling (`data-scrolling`) — otherwise every
+       hover transition also lags the scroll morph behind the wheel.
+
+   Header state flags, set from JS:
+     data-faded     fade  === 0  → logo/links out of layout
+     data-collapsed shrink === 1 → pill is now exactly the button
+     data-scrolling            → a scroll is in flight; suppress transitions
+--------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .v4-header {
+    padding-top: calc(20px - 8px * var(--shrink, 0));
+  }
+
+  .v4-nav {
+    --btn-w: 180px; /* resting CTA width, per Figma */
+    --btn-w-end: 248px; /* collapsed CTA width: 186px label + ~31px each side */
+    --cta-hover-grow: 22px; /* room the arrow needs when it slides in */
+    max-width: calc(1300px - (1300px - var(--btn-w-end)) * var(--shrink, 0));
+    height: calc(72px - 22px * var(--shrink, 0));
+    padding-inline: calc(24px * (1 - var(--shrink, 0)));
+    background-color: rgb(255 255 255 / var(--fade, 1));
+    box-shadow: 0 18px 40px -22px rgb(2 36 233 / calc(0.35 * var(--fade, 1)));
+    transition: max-width 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* The CTA grows as the pill collapses and, at the same time, inverts: it
+     starts as the Figma gradient chip inside the white pill and ends as the
+     standalone white/outlined button the sticky CTA used to be. Hovering
+     always returns it to the gradient, in either state. */
+  .v4-nav__cta {
+    position: relative;
+    isolation: isolate;
+    width: calc(
+      var(--btn-w) + (var(--btn-w-end) - var(--btn-w)) * var(--shrink, 0)
+    );
+    height: calc(40px + 10px * var(--shrink, 0));
+    font-size: calc(14px + 2px * var(--shrink, 0));
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgb(2 36 233 / var(--shrink, 0));
+    color: color-mix(in srgb, #0224e9 calc(var(--shrink, 0) * 100%), #fff);
+    /* once the pill's background is gone the CTA sits straight on page
+       content, so lift it with a shadow that ramps in as the pill fades out */
+    box-shadow: 0 10px 28px -10px
+      rgb(1 20 131 / calc(0.55 * (1 - var(--fade, 1))));
+    transition:
+      width 320ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 260ms ease,
+      border-color 260ms ease;
+  }
+
+  /* gradient lives on an overlay so it can cross-fade against the white base */
+  .v4-nav__cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-image: linear-gradient(90deg, #0224e9 0%, #011483 100%);
+    opacity: calc(1 - var(--shrink, 0));
+    transition: opacity 260ms ease;
+  }
+
+  .v4-nav__cta:hover {
+    width: calc(
+      var(--btn-w) + (var(--btn-w-end) - var(--btn-w)) * var(--shrink, 0) +
+        var(--cta-hover-grow)
+    );
+    color: #fff;
+    border-color: #011483;
+  }
+  .v4-nav__cta:hover::before {
+    opacity: 1;
+  }
+
+  /* arrow slides out of zero width, so the button widens around it */
+  .v4-nav__cta-arrow {
+    display: inline-flex;
+    align-items: center;
+    width: 0;
+    margin-left: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      width 320ms cubic-bezier(0.4, 0, 0.2, 1),
+      margin-left 320ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 220ms ease;
+  }
+  .v4-nav__cta:hover .v4-nav__cta-arrow {
+    width: 14px;
+    margin-left: 8px;
+    opacity: 1;
+  }
+
+  /* fully collapsed the pill IS the button, so it has to widen along with it */
+  .v4-header[data-collapsed="true"] .v4-nav:has(.v4-nav__cta:hover) {
+    max-width: calc(var(--btn-w-end) + var(--cta-hover-grow));
+  }
+
+  /* The duck-away lives on a wrapper, not on the button itself: it fires DURING
+     a scroll, so it must not be caught by the `data-scrolling` transition kill
+     below — and the wrapper's transform/opacity are never scroll-driven. */
+  .v4-nav__cta-slot {
+    transition:
+      transform 420ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 260ms ease;
+  }
+  .v4-header[data-faded="true"][data-cta-hidden="true"] .v4-nav__cta-slot {
+    transform: translateY(-180%);
+    opacity: 0;
+    pointer-events: none;
+    /* visibility flips only once it has finished leaving, which keeps the link
+       out of the tab order while parked off screen without cutting the slide */
+    visibility: hidden;
+    transition:
+      transform 420ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 260ms ease,
+      visibility 0s linear 420ms;
+  }
+
+  /* logo + links dissolve first, taking the pill's background with them */
+  .v4-nav__fade {
+    opacity: var(--fade, 1);
+  }
+  /* must leave layout, not just hide: at full collapse the pill is only as wide
+     as the CTA, so anything still occupying space would push the CTA out of it */
+  .v4-header[data-faded="true"] .v4-nav__fade {
+    display: none;
+  }
+
+  /* scroll drives the same properties hover animates — never both at once */
+  .v4-header[data-scrolling="true"] .v4-nav,
+  .v4-header[data-scrolling="true"] .v4-nav__cta,
+  .v4-header[data-scrolling="true"] .v4-nav__cta::before {
+    transition: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .v4-nav {
+    --btn-w: 212px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v4-header {
+    --shrink: 0;
+    --fade: 1;
+  }
 }

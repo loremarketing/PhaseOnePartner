@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import AnimatedButton from "./animated-button";
 
 export default function StickyDiscoveryButton() {
   const [isVisible, setIsVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +19,9 @@ export default function StickyDiscoveryButton() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // home-v4 has its own header: the nav pill morphs into this CTA on scroll,
+  // so a second floating button (and its full-width bar) would duplicate it.
+  if (pathname === "/home-v4") return null;
   if (!isVisible) return null;
 
   return (
