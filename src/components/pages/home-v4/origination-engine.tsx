@@ -41,14 +41,23 @@ export default function OriginationEngine() {
               full row height by default, leaving sticky nothing to travel in.
               It releases at the bottom of the grid, i.e. the end of the section. */}
           <div className="lg:sticky lg:top-[120px] lg:self-start">
-            <p className="font-manrope text-[14px] font-normal uppercase text-[#0224e9] lg:text-[16px]">
+            <p
+              data-reveal
+              className="font-manrope text-[14px] font-normal uppercase text-[#0224e9] lg:text-[16px]"
+            >
               What we do
             </p>
-            <h2 className="mt-4 font-manrope text-[32px] font-medium leading-[42px] text-[#333] lg:text-[clamp(2.5rem,4.444vw,4rem)] lg:leading-[clamp(2.875rem,4.861vw,4.375rem)]">
+            <h2
+              data-reveal
+              style={{ transitionDelay: "90ms" }}
+              className="mt-4 font-manrope text-[32px] font-medium leading-[42px] text-[#333] lg:text-[clamp(2.5rem,4.444vw,4rem)] lg:leading-[clamp(2.875rem,4.861vw,4.375rem)]">
               The <span className="text-[#0224e9]">origination engine</span>{" "}
               behind sophisticated investment strategies.
             </h2>
-            <p className="mt-7 font-inter text-[16px] font-normal leading-[26px] text-[#333] lg:text-[clamp(1rem,1.25vw,1.125rem)] lg:leading-[clamp(1.5rem,1.944vw,1.75rem)]">
+            <p
+              data-reveal
+              style={{ transitionDelay: "180ms" }}
+              className="mt-7 font-inter text-[16px] font-normal leading-[26px] text-[#333] lg:text-[clamp(1rem,1.25vw,1.125rem)] lg:leading-[clamp(1.5rem,1.944vw,1.75rem)]">
               Our origination engine gives your team the research capability,
               market intelligence and founder access to scale off-market deal
               flow, without building an internal origination function.
@@ -59,6 +68,7 @@ export default function OriginationEngine() {
             {PILLARS.map((p, i) => (
               <div
                 key={p.title}
+                data-reveal
                 className={i > 0 ? "mt-10 border-t border-[#0224e9]/20 pt-10" : ""}
               >
                 <h3 className="font-manrope text-[18px] font-medium leading-[18px] text-[#0224e9] lg:text-[clamp(1.375rem,1.944vw,1.75rem)] lg:leading-[clamp(1.625rem,2.222vw,2rem)]">

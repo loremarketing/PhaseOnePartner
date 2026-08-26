@@ -23,7 +23,7 @@ export default function WhoWeWorkWith() {
     <section className="bg-white py-16 lg:py-[100px]">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-[clamp(24px,4.167vw,60px)]">
         <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,590fr)_minmax(0,670fr)] lg:gap-[4.5455%]">
-          <div>
+          <div data-reveal>
             <p className="font-manrope text-[14px] font-normal uppercase text-[#0224e9] lg:text-[16px]">
               Who we work with
             </p>
@@ -47,7 +47,10 @@ export default function WhoWeWorkWith() {
           </div>
 
           {/* video — Figma 1555:392, 670x400, rounded-[32px] */}
-          <div className="relative aspect-[400/267] w-full overflow-hidden rounded-[12px] lg:aspect-[670/400] lg:rounded-[32px]">
+          <div
+            data-reveal
+            style={{ transitionDelay: "120ms" }}
+            className="relative aspect-[400/267] w-full overflow-hidden rounded-[12px] lg:aspect-[670/400] lg:rounded-[32px]">
             <Image
               src="/home-v4/video-founders.webp"
               alt="PhaseOne Partners founders"
@@ -74,9 +77,11 @@ export default function WhoWeWorkWith() {
 
         {/* audience cards — Figma 1555:348-350, bg #0224e9/5, rounded-[24px], h-257 */}
         <div className="mt-14 grid gap-5 md:grid-cols-3 lg:mt-20">
-          {AUDIENCES.map((a) => (
+          {AUDIENCES.map((a, i) => (
             <div
               key={a.title}
+              data-reveal
+              style={{ transitionDelay: `${i * 90}ms` }}
               className="rounded-[12px] bg-[#0224e9]/5 p-6 lg:min-h-[257px] lg:rounded-[24px] lg:p-8"
             >
               <Image

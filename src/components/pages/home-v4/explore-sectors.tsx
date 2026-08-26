@@ -75,14 +75,20 @@ export default function ExploreSectors() {
   return (
     <section className="bg-white pb-16 lg:pb-[100px]">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-[clamp(24px,4.167vw,60px)]">
-        <h2 className="text-center font-manrope text-[32px] font-medium leading-[32px] text-black lg:text-[clamp(2.5rem,4.444vw,4rem)] lg:leading-[clamp(2.875rem,4.861vw,4.375rem)]">
+        <h2
+          data-reveal
+          className="text-center font-manrope text-[32px] font-medium leading-[32px] text-black lg:text-[clamp(2.5rem,4.444vw,4rem)] lg:leading-[clamp(2.875rem,4.861vw,4.375rem)]">
           Explore sectors{" "}
           <span className="text-[#0224e9]">we&apos;ve mapped</span>
         </h2>
 
         <ul className="mx-auto mt-10 flex max-w-[1266px] flex-wrap justify-center gap-5 lg:mt-14">
-          {SECTORS.map((s) => (
-            <li key={s.label}>
+          {SECTORS.map((s, i) => (
+            <li
+              key={s.label}
+              data-reveal
+              style={{ transitionDelay: `${i * 55}ms` }}
+            >
               <Link
                 href="/contact"
                 className={cn(
