@@ -6,6 +6,7 @@ export default function AccessCta() {
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-[clamp(24px,4.167vw,60px)]">
         {/* Figma 1555:434 — 1320x613, rounded-[32px], artwork background */}
         <div
+          data-reveal
           className="relative flex items-center overflow-hidden rounded-[32px] bg-[#0224e9] bg-cover bg-center px-4 py-16 text-center lg:min-h-[613px] lg:px-16 lg:py-20"
           style={{ backgroundImage: "url('/home-v4/cta-access-bg.webp')" }}
         >

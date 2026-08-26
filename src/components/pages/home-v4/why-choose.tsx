@@ -53,7 +53,7 @@ export default function WhyChoose() {
     // Figma 1555:346 — bg #f0f0f0 with a 1px #0224e9 border
     <section className="border-y border-[#0224e9] bg-[#f0f0f0] py-16 lg:py-[100px]">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-[clamp(24px,4.167vw,60px)]">
-        <div className="text-center">
+        <div data-reveal className="text-center">
           <p className="font-manrope text-[14px] font-normal uppercase text-[#0224e9] lg:text-[16px]">
             The PhaseOne Partners difference
           </p>
@@ -69,7 +69,11 @@ export default function WhyChoose() {
         </div>
 
         {/* ---------- desktop ---------- */}
-        <div className="mt-14 hidden lg:block">
+        <div
+          data-reveal
+          style={{ transitionDelay: "120ms" }}
+          className="mt-14 hidden lg:block"
+        >
           <div className="relative grid grid-cols-[minmax(0,1fr)_33.788%_minmax(0,1fr)]">
             {/* raised gradient card behind the middle column — Figma 1555:466 */}
             <div
@@ -145,7 +149,11 @@ export default function WhyChoose() {
         </div>
 
         {/* ---------- mobile — Figma 1555:974ff: compact icon table ---------- */}
-        <div className="relative mt-10 lg:hidden">
+        <div
+          data-reveal
+          style={{ transitionDelay: "120ms" }}
+          className="relative mt-10 lg:hidden"
+        >
           {/* gradient column behind the middle track — Figma 1555:1140 (w-127) */}
           <div
             aria-hidden="true"

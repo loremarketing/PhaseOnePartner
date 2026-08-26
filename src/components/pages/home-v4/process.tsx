@@ -43,14 +43,23 @@ export default function Process() {
   return (
     <section id="our-process" className="bg-white py-16 lg:py-[100px]">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-[clamp(24px,4.167vw,60px)]">
-        <p className="font-manrope text-[14px] font-normal uppercase text-[#0224e9] lg:text-[16px]">
+        <p
+          data-reveal
+          className="font-manrope text-[14px] font-normal uppercase text-[#0224e9] lg:text-[16px]"
+        >
           Our process
         </p>
-        <h2 className="mt-4 font-manrope text-[32px] font-medium leading-[42px] text-[#333] lg:max-w-[937px] lg:text-[clamp(2.5rem,4.444vw,4rem)] lg:leading-[clamp(2.875rem,4.861vw,4.375rem)]">
+        <h2
+          data-reveal
+          style={{ transitionDelay: "90ms" }}
+          className="mt-4 font-manrope text-[32px] font-medium leading-[42px] text-[#333] lg:max-w-[937px] lg:text-[clamp(2.5rem,4.444vw,4rem)] lg:leading-[clamp(2.875rem,4.861vw,4.375rem)]">
           A white-label engine that plugs into your{" "}
           <span className="text-[#0224e9]">investment process.</span>
         </h2>
-        <p className="mt-6 font-inter text-[16px] font-normal leading-[26px] text-[#333] lg:max-w-[890px] lg:text-[clamp(1rem,1.25vw,1.125rem)] lg:leading-[clamp(1.5rem,1.944vw,1.75rem)]">
+        <p
+          data-reveal
+          style={{ transitionDelay: "180ms" }}
+          className="mt-6 font-inter text-[16px] font-normal leading-[26px] text-[#333] lg:max-w-[890px] lg:text-[clamp(1rem,1.25vw,1.125rem)] lg:leading-[clamp(1.5rem,1.944vw,1.75rem)]">
           A clear, repeatable path from mandate to completion, and we stay on to
           originate the bolt-ons that build out your platform.
         </p>
@@ -64,6 +73,7 @@ export default function Process() {
               // title wrapping beside it. Desktop: single 140px row.
               <li
                 key={step.title}
+                data-reveal
                 className="relative flex min-h-[115px] flex-col justify-center rounded-[12px] bg-[#0224e9]/5 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-6 lg:min-h-[140px] lg:rounded-[24px] lg:px-10 lg:py-0"
               >
                 <div className="sm:flex-1">
@@ -87,7 +97,9 @@ export default function Process() {
         </ol>
 
         {/* closing strip — Figma 1555:559: bg #0224e9/5, rounded-[24px], h-145, black heading */}
-        <div className="relative isolate mt-5 overflow-hidden rounded-[12px] bg-[#0224e9]/5 lg:rounded-[24px]">
+        <div
+          data-reveal
+          className="relative isolate mt-5 overflow-hidden rounded-[12px] bg-[#0224e9]/5 lg:rounded-[24px]">
           <WaveLines
             className="bg-[#0224e9]/10"
             style={{

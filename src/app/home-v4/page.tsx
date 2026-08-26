@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import NavbarV4 from "@/components/pages/home-v4/navbar-v4";
+import ScrollReveal from "@/components/pages/home-v4/scroll-reveal";
 import Hero from "@/components/pages/home-v4/hero";
 import WhoWeWorkWith from "@/components/pages/home-v4/who-we-work-with";
 import OriginationEngine from "@/components/pages/home-v4/origination-engine";
@@ -20,6 +21,18 @@ export const metadata: Metadata = {
 export default function HomeV4() {
   return (
     <>
+      {/* reveals start hidden, so guarantee the content is readable if the
+          script never runs — ScrollReveal covers the no-IntersectionObserver
+          and reduced-motion cases, but not JS being disabled outright */}
+      <noscript>
+        {/* eslint-disable-next-line react/no-danger */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: "[data-reveal]{opacity:1!important;transform:none!important}",
+          }}
+        />
+      </noscript>
+      <ScrollReveal />
       <NavbarV4 />
       <Hero />
       <WhoWeWorkWith />
