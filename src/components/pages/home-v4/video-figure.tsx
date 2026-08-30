@@ -53,7 +53,9 @@ export default function VideoFigure({
   style?: React.CSSProperties;
 }) {
   const [started, setStarted] = useState(false); // the viewer pressed play
-  const [playing, setPlaying] = useState(false); // frames are actually on screen
+  const [hasFrames, setHasFrames] = useState(false); // something is on screen
+  const [stalled, setStalled] = useState(false); // buffering mid-playback
+  const [ended, setEnded] = useState(false); // played through to the end
   const rootRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const muxRef = useRef<MuxHandle | null>(null);
@@ -120,10 +122,14 @@ export default function VideoFigure({
     };
   }, [playbackId, playable, warm]);
 
-  // phase 3
+  // phase 3 — also the replay path, since the play button comes back at the end
   const press = async () => {
     const video = videoRef.current;
     if (!video) return;
+    if (ended) {
+      setEnded(false);
+      video.currentTime = 0;
+    }
     setStarted(true);
     warm();
     // attaching is async on a cold start; without awaiting, play() rejects
@@ -152,15 +158,27 @@ export default function VideoFigure({
 
       <video
         ref={videoRef}
-        controls={started}
+        controls={started && !ended}
         playsInline
         preload="none"
-        onPlaying={() => setPlaying(true)}
-        onWaiting={() => setPlaying(false)}
-        onEnded={() => setPlaying(false)}
+        onLoadedData={() => setHasFrames(true)}
+        onPlaying={() => {
+          setHasFrames(true);
+          setStalled(false);
+          setEnded(false);
+        }}
+        // a stall keeps the frame it already has — dropping back to the poster
+        // mid-playback is far more jarring than a spinner over the last frame
+        onWaiting={() => setStalled(true)}
+        onEnded={() => setEnded(true)}
         className={cn(
           "absolute inset-0 size-full bg-transparent object-cover transition-opacity duration-300",
-          playing ? "opacity-100" : "pointer-events-none opacity-0"
+          // `started` matters as much as `hasFrames`: prefetching fires
+          // loadeddata, so without it the video reveals its own first frame and
+          // covers the designed poster before anyone has pressed play
+          started && hasFrames && !ended
+            ? "opacity-100"
+            : "pointer-events-none opacity-0"
         )}
       >
         {/* Mux assets carry no static MP4 rendition, so their source is
@@ -169,13 +187,13 @@ export default function VideoFigure({
           sources.map((s) => <source key={s.src} src={s.src} type={s.type} />)}
       </video>
 
-      {!started &&
+      {(!started || ended) &&
         (playable ? (
           <button
             type="button"
             onClick={press}
             onFocus={warm}
-            aria-label={`Play video: ${alt}`}
+            aria-label={`${ended ? "Replay" : "Play"} video: ${alt}`}
             // the whole poster is the target, not just the 60px glyph — the
             // glyph alone is a small hit area for something this prominent
             className="absolute inset-0 flex cursor-pointer items-center justify-center"
@@ -203,9 +221,10 @@ export default function VideoFigure({
           </span>
         ))}
 
-      {/* pressed, but not yet showing frames — acknowledge the press instead of
-          leaving a poster that looks like nothing happened */}
-      {started && !playing && (
+      {/* Pressed but nothing to show yet, or stalled mid-playback. Not shown
+          once it has ended — that state is a poster with the play button back
+          on it, which is a replay affordance rather than a load. */}
+      {started && !ended && (!hasFrames || stalled) && (
         <span
           role="status"
           aria-label="Loading video"

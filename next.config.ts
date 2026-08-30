@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Lets a throwaway build write somewhere other than .next, so verifying a
+  // production build never clobbers the .next a running dev server owns —
+  // that collision shows up as ENOENT on app-build-manifest.json and friends.
+  //   NEXT_DIST_DIR=.next-verify npx next build
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   // Increase body size limit for large video files
   serverRuntimeConfig: {
     maxFileSize: '250mb',
