@@ -82,7 +82,13 @@ export default function VideoFigure({
           controls
           playsInline
           preload="auto"
-          className="absolute inset-0 size-full bg-black object-contain"
+          // object-cover, matching the poster underneath: the Figma boxes are
+          // not all 16:9 (670x400 here, 400x267 on mobile) and the sources are,
+          // so object-contain letterboxed the video the instant it replaced a
+          // poster that had filled the same box. Transparent, not black, so the
+          // poster stays visible through the first frames rather than being
+          // covered by a blank rectangle while it buffers.
+          className="absolute inset-0 size-full bg-transparent object-cover"
         >
           {/* Mux assets carry no static MP4 rendition, so their source is
               attached imperatively by attachMux rather than declared here. */}
