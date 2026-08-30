@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { attachMux, type MuxHandle } from "@/lib/mux";
+import { attachMux, shouldPrefetch, type MuxHandle } from "@/lib/mux";
 import { VIDEOS } from "@/lib/videos";
 // import SplitText from "@/components/ui/split-text";
 
@@ -28,7 +28,26 @@ export default function HomeVideo() {
     if (!video) return;
     const mux = attachMux(video, VIDEOS.homeHero, { autoStart: false });
     muxRef.current = mux;
+
+    // Begin buffering once the player is actually on screen, rather than on
+    // the click — otherwise the press pays for the manifest and the first
+    // segments and stalls for seconds. Not at a generous rootMargin, which
+    // would buffer for people who never scroll to it. Skipped on metered or 2g.
+    let io: IntersectionObserver | undefined;
+    if (typeof IntersectionObserver !== "undefined" && shouldPrefetch()) {
+      io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            mux.startLoad();
+            io?.disconnect();
+          }
+        },
+        { threshold: 0.5 }
+      );
+      io.observe(video);
+    }
     return () => {
+      io?.disconnect();
       mux.destroy();
       muxRef.current = null;
     };

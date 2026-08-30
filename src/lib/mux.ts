@@ -20,6 +20,23 @@ export function muxPoster(playbackId: string, width = 1200) {
   return `https://image.mux.com/${playbackId}/thumbnail.webp?width=${width}`;
 }
 
+/**
+ * Whether it is reasonable to pre-buffer before the viewer has asked to watch.
+ * Respects Save-Data and backs off on 2g, so warming a video ahead of a press
+ * never costs someone on a metered connection.
+ */
+export function shouldPrefetch(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const c = (
+    navigator as Navigator & {
+      connection?: { saveData?: boolean; effectiveType?: string };
+    }
+  ).connection;
+  if (!c) return true; // unknown: assume a normal connection
+  if (c.saveData) return false;
+  return c.effectiveType ? !/2g|slow/.test(c.effectiveType) : true;
+}
+
 export type MuxHandle = {
   /** Begin fetching the manifest and segments. No-op when autoStart was true. */
   startLoad: () => void;
