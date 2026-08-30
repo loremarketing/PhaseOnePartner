@@ -125,7 +125,7 @@ export default function NavbarV4() {
       <nav className="v4-nav mx-auto flex h-[64px] w-full max-w-[1300px] items-center rounded-[80px] bg-white px-5 lg:h-[72px] lg:px-6">
         <Link href="/" className="v4-nav__fade shrink-0">
           <Image
-            src="/logo.black.png"
+            src="/logo.black.webp"
             alt="PhaseOne Partners"
             width={172}
             height={40}

@@ -102,9 +102,9 @@ export default function ForFounders() {
   // Preload critical hero images
   const heroImages = [
     "/bg/partners-for-growth-hero-bg.png",
-    "/foreman-or-worker-work-at-factory.jpg",
+    "/foreman-or-worker-work-at-factory.webp",
     "/about/about-updated-images/founder-updated-images/skilled-mechanic-working-on-large-truck-repair-2025-10-08-10-22-08-utc_11zon.webp",
-    "/car-technician-check-engines-choose-quality-gear-2026-01-07-02-19-59-utc (1).jpg",
+    "/car-technician-check-engines-choose-quality-gear-2026-01-07-02-19-59-utc (1).webp",
   ];
 
   return (
@@ -114,7 +114,7 @@ export default function ForFounders() {
       <section className="relative bg-gradient-to-b from-[#0224e9] to-[#011483] min-h-[478px] lg:min-h-[976px] pt-[165px] lg:pt-[266.7px] overflow-hidden">
         {/* Wavy Background Image, centered and full size */}
         <Image
-          src="/invester/founderpage-wave.png"
+          src="/invester/founderpage-wave.webp"
           alt="Hero Section Background Wave"
           fill
           priority
@@ -146,7 +146,7 @@ export default function ForFounders() {
             {/* 1st column  */}
             <div className="flex flex-col gap-2 lg:gap-6 w-[30%]">
               <LazyBackgroundImage
-                src="/foreman-or-worker-work-at-factory.jpg"
+                src="/foreman-or-worker-work-at-factory.webp"
                 className="w-full h-[72px] md:h-[236px] md:rounded-[12px] rounded-[6px]"
                 style={{
                   backgroundSize: "cover",
@@ -181,7 +181,7 @@ export default function ForFounders() {
             {/* 3rd column  */}
             <div className="flex flex-col gap-2 lg:gap-6 w-[30%]">
               <LazyBackgroundImage
-                src="/car-technician-check-engines-choose-quality-gear-2026-01-07-02-19-59-utc (1).jpg"
+                src="/car-technician-check-engines-choose-quality-gear-2026-01-07-02-19-59-utc (1).webp"
                 className="w-full h-[72px] md:h-[236px] md:rounded-[12px] rounded-[6px]"
                 style={{
                   backgroundSize: "cover",
@@ -214,7 +214,7 @@ export default function ForFounders() {
             </div>
             <div className="absolute top-1/2 -translate-y-1/2 md:right-[-270px] right-[-295px]">
               <LazyBackgroundImage
-                src="/images/colleagues-on-business-meeting-in-conference-room-2025-12-01-08-09-07-utc.jpg"
+                src="/images/colleagues-on-business-meeting-in-conference-room-2025-12-01-08-09-07-utc.webp"
                 className="w-[300px] h-[72px] md:h-[236px] md:rounded-[12px] rounded-[6px]"
                 style={{
                   backgroundSize: "cover",
@@ -272,7 +272,7 @@ export default function ForFounders() {
           {/* right side absolute position image */}
           <div className="absolute md:-top-32 -right-36 bottom-0 md:bottom-auto z-0">
             <Image
-              src="/bg/partners-for-growth-2nd-section-bg.png"
+              src="/bg/partners-for-growth-2nd-section-bg.webp"
               alt="Partners for Growth Hero Image"
               width={504}
               height={543}
@@ -453,7 +453,7 @@ export default function ForFounders() {
           {/* Background decorative elements */}
           <div className="absolute -left-20 lg:left-0 -bottom-8 lg:bottom-0">
             <Image
-              src="/bg/partners-for-growth-get-started-desktop.png"
+              src="/bg/partners-for-growth-get-started-desktop.webp"
               alt="Partners for Growth A 15 minute conversation Background"
               width={584}
               height={730}
@@ -462,7 +462,7 @@ export default function ForFounders() {
           </div>
           <div className="absolute -right-8 -top-8 lg:right-0 lg:top-0">
             <Image
-              src="/bg/partners-for-growth-get-started-2-desktop.png"
+              src="/bg/partners-for-growth-get-started-2-desktop.webp"
               alt="Partners for Growth A 15 minute conversation Background"
               width={584}
               height={730}

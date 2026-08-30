@@ -67,7 +67,7 @@ export default function OurDifferenceSection() {
     <section className="relative w-full bg-white py-12 lg:py-20 px-4 sm:px-6 lg:px-16">
       {/* Top background image */}
       <Image
-        src="/about/about-3rd-section-bg.png"
+        src="/about/about-3rd-section-bg.webp"
         alt=""
         width={1500}
         height={300}

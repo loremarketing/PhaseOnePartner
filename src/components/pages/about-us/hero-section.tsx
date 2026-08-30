@@ -46,7 +46,7 @@ export default function AboutUsHeroSection() {
                 className="w-full h-[72px] md:h-[236px] md:rounded-[12px] rounded-[6px]"
                 style={{
                   backgroundImage:
-                    "url('/about-optimized-images/worker-in-grey-clothes-spreading-concrete-floor-du-2025-10-08-11-28-32-utc_11zon.jpg')",
+                    "url('/about-optimized-images/worker-in-grey-clothes-spreading-concrete-floor-du-2025-10-08-11-28-32-utc_11zon.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -55,7 +55,7 @@ export default function AboutUsHeroSection() {
                 className="w-full h-[72px] md:h-[236px] md:rounded-t-[12px] rounded-t-[6px]"
                 style={{
                   backgroundImage:
-                    "url('/about-optimized-images/construction-site-for-new-highrise-buildings-2025-03-08-12-36-16-utc_11zon.jpg')",
+                    "url('/about-optimized-images/construction-site-for-new-highrise-buildings-2025-03-08-12-36-16-utc_11zon.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}

@@ -8,7 +8,7 @@ interface HamburgerIconProps {
 export function HamburgerIcon({ className = "h-6 w-6" }: HamburgerIconProps) {
   return (
     <Image
-      src="/icons/hamburge.png"
+      src="/icons/hamburge.webp"
       alt="Menu"
       width={24}
       height={24}

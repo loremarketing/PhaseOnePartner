@@ -101,9 +101,9 @@ export default function Forinvestors() {
 
   // Preload critical hero images
   const heroImages = [
-    "/bg/investers-1st-section-bg.png",
-    "/Mask group (2).png",
-    "/images/colleagues-on-business-meeting-in-conference-room-2025-12-01-08-09-07-utc.jpg",
+    "/bg/investers-1st-section-bg.webp",
+    "/Mask group (2).webp",
+    "/images/colleagues-on-business-meeting-in-conference-room-2025-12-01-08-09-07-utc.webp",
   ];
 
   return (
@@ -114,7 +114,7 @@ export default function Forinvestors() {
         {/* Background decorative elements Image */}
         <div className="absolute bottom-0 w-full max-w-[800px] right-0 overflow-hidden pointer-events-none hidden lg:block">
           <Image
-            src="/bg/investers-1st-section-bg.png"
+            src="/bg/investers-1st-section-bg.webp"
             alt="Partners for Growth Hero Background"
             width={1000}
             height={1000}
@@ -127,7 +127,7 @@ export default function Forinvestors() {
         {/* Mask group decorative element */}
         <div className="absolute top-50 -right-50 bottom-0 overflow-visible pointer-events-none z-0">
           <Image
-            src="/Mask group (2).png"
+            src="/Mask group (2).webp"
             alt="Mask group"
             width={1000}
             height={1000}
@@ -193,7 +193,7 @@ export default function Forinvestors() {
             {/* 2nd column  */}
             <div className="flex flex-col item-center justify-end w-[40%]">
               <LazyBackgroundImage
-                src="/images/colleagues-on-business-meeting-in-conference-room-2025-12-01-08-09-07-utc.jpg"
+                src="/images/colleagues-on-business-meeting-in-conference-room-2025-12-01-08-09-07-utc.webp"
                 className="w-full h-[80%] md:rounded-t-[12px] rounded-t-[6px]"
                 style={{
                   backgroundSize: "cover",
@@ -301,7 +301,7 @@ export default function Forinvestors() {
           {/* rihgt side absolute position image */}
           <div className="absolute md:top-22 bottom-0 -right-0 md:bottom-auto z-0">
             <Image
-              src="/bg/investers-2nd-section-bg.png"
+              src="/bg/investers-2nd-section-bg.webp"
               alt="Partners for Growth Hero Image"
               width={504}
               height={543}
@@ -484,7 +484,7 @@ export default function Forinvestors() {
             {/* Left side decorative element */}
             <div className="absolute top-1/2 -translate-y-1/2 right-[-15vw] z-[0] pointer-events-none">
               <Image
-                src="/bg-2.png"
+                src="/bg-2.webp"
                 alt="Left side decorative element"
                 width={584}
                 height={730}
@@ -495,7 +495,7 @@ export default function Forinvestors() {
             {/* Overlay image */}
             <div className="absolute top-1/2 -translate-y-1/2 right-[-5vw] z-1 pointer-events-none opacity-100">
               <Image
-                src="/bg/partners-for-growth-3nd-section.png"
+                src="/bg/partners-for-growth-3nd-section.webp"
                 alt="Partners for Growth A 15 minute conversation Background"
                 width={1200}
                 height={1200}
@@ -523,7 +523,7 @@ export default function Forinvestors() {
           {/* Background decorative elements */}
           <div className="absolute -left-8 -bottom-8 lg:left-0 lg:bottom-0">
             <Image
-              src="/bg/partners-for-growth-get-started-desktop.png"
+              src="/bg/partners-for-growth-get-started-desktop.webp"
               alt="Partners for Growth A 15 minute conversation Background"
               width={584}
               height={730}
@@ -532,7 +532,7 @@ export default function Forinvestors() {
           </div>
           <div className="absolute -right-8 -top-8 lg:right-0 lg:top-0">
             <Image
-              src="/bg/partners-for-growth-get-started-2-desktop.png"
+              src="/bg/partners-for-growth-get-started-2-desktop.webp"
               alt="Partners for Growth A 15 minute conversation Background"
               width={584}
               height={730}

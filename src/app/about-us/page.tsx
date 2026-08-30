@@ -15,7 +15,7 @@ export default function AboutUs() {
       <WhatWeDoSection />
       <OpportunitySection />
       <Image
-        src="/divider.png"
+        src="/divider.webp"
         alt="Section divider"
         width={1000}
         height={1000}
@@ -23,7 +23,7 @@ export default function AboutUs() {
       />
       <OurDifferenceSection />
       <Image
-        src="/divider.png"
+        src="/divider.webp"
         alt="Section divider"
         width={1000}
         height={1000}

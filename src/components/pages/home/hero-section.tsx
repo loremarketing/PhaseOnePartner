@@ -9,7 +9,7 @@ export default function HeroSection() {
       <div className="absolute bottom-0 inset-x-0 lg:inset-x-auto lg:right-0 lg:w-[80vw] w-full h-full max-h-[100vh] z-0">
         <div className="w-full h-full relative">
           <Image
-            src="/hero-bg-chroped-2.png"
+            src="/hero-bg-chroped-2.webp"
             alt="Hero Section Background"
             width={1000}
             height={1000}
@@ -20,7 +20,7 @@ export default function HeroSection() {
       <div className="flex flex-col justify-center text-foreground gap-3 font-manrope text-center mx-auto max-w-full">
         <div className="flex justify-center mb-6 z-10">
           <Image
-            src="/logo.black.png"
+            src="/logo.black.webp"
             alt="PhaseOne Logo"
             width={800}
             height={300}

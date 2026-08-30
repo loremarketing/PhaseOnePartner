@@ -32,7 +32,7 @@ export default function WhatWeDoSection() {
   return (
     <section className="relative py-12 lg:py-20 px-[15px] lg:px-[70px] bg-[#F0F0F0] border-t border-b border-[#0224E9]">
       <Image
-        src="/2nd-section-bg.png"
+        src="/2nd-section-bg.webp"
         alt=""
         width={1000}
         height={1000}

@@ -225,7 +225,7 @@ export default function InvestorFounder() {
           ))}
           <div className="absolute -top-16 -left-12 w-full h-full z-0">
             <Image
-              src="/2nd-section-bg.png"
+              src="/2nd-section-bg.webp"
               alt="bg"
               width={1000}
               height={1000}

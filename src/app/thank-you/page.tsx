@@ -8,7 +8,7 @@ export default function ThankYouPage() {
       <div className="flex flex-col justify-center text-foreground gap-3 font-manrope text-center mx-auto max-w-full">
         <div className="flex justify-center mb-6 z-10">
           <Image
-            src="/logo.black.png"
+            src="/logo.black.webp"
             alt="PhaseOne Logo"
             width={800}
             height={300}

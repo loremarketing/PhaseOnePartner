@@ -17,7 +17,7 @@ export default function Home() {
       <InvestorFounder />
       <HomeVideo />
       <Image
-        src="/divider.png"
+        src="/divider.webp"
         alt="Who we are"
         width={1000}
         height={1000}
@@ -28,7 +28,7 @@ export default function Home() {
       </div>
       <Team />
       <Image
-        src="/divider.png"
+        src="/divider.webp"
         alt="Who we are"
         width={1000}
         height={1000}

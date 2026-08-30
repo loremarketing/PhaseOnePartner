@@ -9,7 +9,7 @@ export default function CtaSection() {
         {/* Background decorative elements */}
         <div className="absolute -left-20 lg:left-0 -bottom-8 lg:bottom-0">
           <Image
-            src="/bg/partners-for-growth-get-started-desktop.png"
+            src="/bg/partners-for-growth-get-started-desktop.webp"
             alt="Partners for Growth A 15 minute conversation Background"
             width={584}
             height={730}
@@ -18,7 +18,7 @@ export default function CtaSection() {
         </div>
         <div className="absolute -right-8 -top-8 lg:right-0 lg:top-0">
           <Image
-            src="/bg/partners-for-growth-get-started-2-desktop.png"
+            src="/bg/partners-for-growth-get-started-2-desktop.webp"
             alt="Partners for Growth A 15 minute conversation Background"
             width={584}
             height={730}

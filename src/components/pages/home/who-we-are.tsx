@@ -118,14 +118,14 @@ export function WhoWeAre() {
   return (
     <section className="relative z-10">
       <Image
-        src="/2nd-section-bg.png"
+        src="/2nd-section-bg.webp"
         alt="Who we are"
         width={1000}
         height={1000}
         className="z-[-1] object-cover w-fit h-fit max-h-[800px] absolute -top-52 -left-12 opacity-60"
       />
       <Image
-        src="/2nd-section-bg.png"
+        src="/2nd-section-bg.webp"
         alt="Who we are"
         width={1000}
         height={1000}
