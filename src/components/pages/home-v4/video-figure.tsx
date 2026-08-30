@@ -54,7 +54,6 @@ export default function VideoFigure({
 }) {
   const [started, setStarted] = useState(false); // the viewer pressed play
   const [hasFrames, setHasFrames] = useState(false); // something is on screen
-  const [stalled, setStalled] = useState(false); // buffering mid-playback
   const [ended, setEnded] = useState(false); // played through to the end
   const rootRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -164,12 +163,8 @@ export default function VideoFigure({
         onLoadedData={() => setHasFrames(true)}
         onPlaying={() => {
           setHasFrames(true);
-          setStalled(false);
           setEnded(false);
         }}
-        // a stall keeps the frame it already has — dropping back to the poster
-        // mid-playback is far more jarring than a spinner over the last frame
-        onWaiting={() => setStalled(true)}
         onEnded={() => setEnded(true)}
         className={cn(
           "absolute inset-0 size-full bg-transparent object-cover transition-opacity duration-300",
@@ -221,10 +216,12 @@ export default function VideoFigure({
           </span>
         ))}
 
-      {/* Pressed but nothing to show yet, or stalled mid-playback. Not shown
-          once it has ended — that state is a poster with the play button back
-          on it, which is a replay affordance rather than a load. */}
-      {started && !ended && (!hasFrames || stalled) && (
+      {/* Pressed, but there is still nothing to show. Deliberately NOT shown
+          for a mid-playback stall: the video is visible by then and the native
+          player draws its own buffering spinner, so ours only doubled it up.
+          Nor once it has ended — that state is the poster with the play button
+          back on it, which is a replay affordance rather than a load. */}
+      {started && !ended && !hasFrames && (
         <span
           role="status"
           aria-label="Loading video"
