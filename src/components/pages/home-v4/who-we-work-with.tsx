@@ -1,4 +1,6 @@
 import Image from "next/image";
+import VideoFigure from "./video-figure";
+import { VIDEOS } from "@/lib/videos";
 
 const AUDIENCES = [
   {
@@ -47,32 +49,15 @@ export default function WhoWeWorkWith() {
           </div>
 
           {/* video — Figma 1555:392, 670x400, rounded-[32px] */}
-          <div
-            data-reveal
+          <VideoFigure
+            poster="/home-v4/video-founders.webp"
+            alt="PhaseOne Partners founders"
+            playbackId={VIDEOS.founders}
+            sizes="(min-width: 1024px) 670px, 100vw"
+            priority
             style={{ transitionDelay: "120ms" }}
-            className="relative aspect-[400/267] w-full overflow-hidden rounded-[12px] lg:aspect-[670/400] lg:rounded-[32px]">
-            <Image
-              src="/home-v4/video-founders.webp"
-              alt="PhaseOne Partners founders"
-              fill
-              sizes="(min-width: 1024px) 670px, 100vw"
-              className="object-cover"
-              priority
-            />
-            <button
-              type="button"
-              aria-label="Play video"
-              className="absolute left-1/2 top-1/2 size-[60px] -translate-x-1/2 -translate-y-1/2 transition-transform hover:scale-105"
-            >
-              <Image
-                src="/home-v4/play.svg"
-                alt=""
-                width={60}
-                height={60}
-                className="size-[60px]"
-              />
-            </button>
-          </div>
+            className="aspect-[400/267] w-full rounded-[12px] lg:aspect-[670/400] lg:rounded-[32px]"
+          />
         </div>
 
         {/* audience cards — Figma 1555:348-350, bg #0224e9/5, rounded-[24px], h-257 */}

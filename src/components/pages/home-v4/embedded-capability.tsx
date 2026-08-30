@@ -1,4 +1,5 @@
-import Image from "next/image";
+import VideoFigure from "./video-figure";
+import { VIDEOS } from "@/lib/videos";
 
 export default function EmbeddedCapability() {
   return (
@@ -27,31 +28,14 @@ export default function EmbeddedCapability() {
         </p>
 
         {/* Figma 1555:554 — 874x492, rounded-[24px] */}
-        <div
-          data-reveal
+        <VideoFigure
+          poster="/home-v4/video-embedded.webp"
+          alt="Working alongside your investment team"
+          playbackId={VIDEOS.embeddedCapability}
+          sizes="(min-width: 1024px) 874px, 100vw"
           style={{ transitionDelay: "240ms" }}
-          className="relative mx-auto mt-12 aspect-[874/492] w-full overflow-hidden rounded-[12px] lg:rounded-[24px] lg:max-w-[874px]">
-          <Image
-            src="/home-v4/video-embedded.webp"
-            alt="Working alongside your investment team"
-            fill
-            sizes="(min-width: 1024px) 874px, 100vw"
-            className="object-cover"
-          />
-          <button
-            type="button"
-            aria-label="Play video"
-            className="absolute left-1/2 top-1/2 size-[60px] -translate-x-1/2 -translate-y-1/2 transition-transform hover:scale-105"
-          >
-            <Image
-              src="/home-v4/play.svg"
-              alt=""
-              width={60}
-              height={60}
-              className="size-[60px]"
-            />
-          </button>
-        </div>
+          className="mx-auto mt-12 aspect-[874/492] w-full rounded-[12px] lg:rounded-[24px] lg:max-w-[874px]"
+        />
       </div>
     </section>
   );

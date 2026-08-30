@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { attachMux, type MuxHandle } from "@/lib/mux";
+import { VIDEOS } from "@/lib/videos";
 // import SplitText from "@/components/ui/split-text";
 
 export default function HomeVideo() {
@@ -14,7 +16,23 @@ export default function HomeVideo() {
   const [hasUserInteracted, setHasUserInteracted] = useState(false); // Track if user has clicked video
 
   const videoRef = useRef<HTMLVideoElement>(null);
+  const muxRef = useRef<MuxHandle | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Mux replaces the 92MB /PhaseOne-Hero-Video.mp4 that used to sit in public/.
+  // autoStart:false means attaching costs nothing on the wire — no manifest, no
+  // segments — until handleVideoClick calls startLoad(), so the hero section is
+  // free for the majority of visitors who never press play.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const mux = attachMux(video, VIDEOS.homeHero, { autoStart: false });
+    muxRef.current = mux;
+    return () => {
+      mux.destroy();
+      muxRef.current = null;
+    };
+  }, []);
 
   // Check if autoplay is supported (but don't autoplay)
   useEffect(() => {
@@ -168,6 +186,10 @@ export default function HomeVideo() {
     e.stopPropagation();
 
     if (videoRef.current) {
+      // attaching is async: without awaiting it, play() rejects against an
+      // element that still has no source and nothing restarts it
+      muxRef.current?.startLoad();
+      await muxRef.current?.ready;
       try {
         if (!hasUserInteracted) {
           // First user interaction - start video from beginning with sound
@@ -225,15 +247,14 @@ export default function HomeVideo() {
           muted={true} // Always start muted
           playsInline
           controls={hasUserInteracted} // Show controls only after first interaction
-          preload="metadata"
-          poster="/images/thumbnail.png" // Using poster attribute for thumbnail
+          preload="none"
+          poster="/images/thumbnail.webp" // Using poster attribute for thumbnail
           style={{
             objectFit: "contain",
             objectPosition: "center",
             backgroundColor: "transparent",
           }}
         >
-          <source src="/PhaseOne-Hero-Video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
