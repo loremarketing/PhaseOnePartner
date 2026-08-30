@@ -80,7 +80,7 @@ export default function IndustrySection({
         <p
           data-reveal
           style={{ transitionDelay: "90ms" }}
-          className="mx-auto mt-[30px] max-w-[883px] text-center font-inter text-[16px] font-normal leading-[26px] text-[#333] lg:mt-10 lg:text-[clamp(1rem,1.25vw,1.125rem)] lg:leading-[clamp(1.5rem,1.944vw,1.75rem)]"
+          className="mx-auto mt-[30px] max-w-[883px] text-center font-inter text-[16px] font-normal leading-[26px] text-[#333] lg:mt-10 lg:text-[clamp(1rem,1.25vw,1.125rem)] lg:leading-[clamp(1.5rem,1.944vw,1.75rem)] text-balance"
         >
           {industry.intro}
         </p>
@@ -96,18 +96,25 @@ export default function IndustrySection({
               // tiles in a row arrive together, so a short per-column cascade
               // reads as intentional; the modulo restarts it each row
               style={{ transitionDelay: `${(i % 4) * 70}ms` }}
-              className="flex min-h-[142px] flex-col items-center justify-center gap-[10px] rounded-[16px] bg-white px-4 py-5 text-center shadow-[0px_4px_40px_0px_rgba(0,0,0,0.06)] lg:min-h-[114.83px] lg:flex-row lg:justify-start lg:gap-[14px] lg:rounded-[32px] lg:px-8 lg:py-0 lg:text-left"
             >
-              <Image
-                src={tile.icon}
-                alt=""
-                width={60}
-                height={60}
-                className="size-[60px] shrink-0"
-              />
-              <span className="font-manrope text-[16px] font-medium leading-[20px] text-black lg:text-[20px] lg:leading-[22px]">
-                {tile.label}
-              </span>
+              {/* The hover styling lives on this inner element, not the <li>.
+                  The reveal rules in globals.css are unlayered, so
+                  `[data-reveal][data-revealed="true"] { transform: none }`
+                  outranks any Tailwind hover:-translate utility on the same
+                  node and the lift would silently never happen. Keeping the
+                  two on separate elements lets each own its transform. */}
+              <div className="group flex h-full min-h-[142px] flex-col items-center justify-center gap-[10px] rounded-[16px] bg-white px-4 py-5 text-center shadow-[0px_4px_40px_0px_rgba(0,0,0,0.06)] transition-[translate,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0px_12px_28px_0px_rgba(2,36,233,0.16)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:min-h-[114.83px] lg:flex-row lg:justify-start lg:gap-[14px] lg:rounded-[32px] lg:px-8 lg:py-0 lg:text-left">
+                <Image
+                  src={tile.icon}
+                  alt=""
+                  width={60}
+                  height={60}
+                  className="size-[60px] shrink-0 transition-[scale] duration-300 ease-out group-hover:scale-[1.08] motion-reduce:group-hover:scale-100"
+                />
+                <span className="font-manrope text-[16px] font-medium leading-[20px] text-black transition-colors duration-300 group-hover:text-[#0224e9] lg:text-[20px] lg:leading-[22px]">
+                  {tile.label}
+                </span>
+              </div>
             </li>
           ))}
         </ul>
