@@ -71,15 +71,27 @@ const SECTORS = [
   },
 ];
 
-export default function ExploreSectors() {
+/**
+ * Shared by the home page and /industries, which use the same ten pills under
+ * different headings ("...we've mapped" vs "...we work with"). The lead half of
+ * the heading is black and the trailing half #0224e9, per Figma.
+ */
+export default function ExploreSectors({
+  lead = "Explore sectors",
+  accent = "we've mapped",
+  className,
+}: {
+  lead?: string;
+  accent?: string;
+  className?: string;
+}) {
   return (
-    <section className="bg-white pb-16 lg:pb-[100px]">
+    <section className={cn("bg-white pb-16 lg:pb-[100px]", className)}>
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-[clamp(24px,4.167vw,60px)]">
         <h2
           data-reveal
           className="text-center font-manrope text-[32px] font-medium leading-[32px] text-black lg:text-[clamp(2.5rem,4.444vw,4rem)] lg:leading-[clamp(2.875rem,4.861vw,4.375rem)]">
-          Explore sectors{" "}
-          <span className="text-[#0224e9]">we&apos;ve mapped</span>
+          {lead} <span className="text-[#0224e9]">{accent}</span>
         </h2>
 
         <ul className="mx-auto mt-10 flex max-w-[1266px] flex-wrap justify-center gap-5 lg:mt-14">

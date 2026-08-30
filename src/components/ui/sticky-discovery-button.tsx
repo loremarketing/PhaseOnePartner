@@ -6,6 +6,7 @@ import AnimatedButton from "./animated-button";
 
 export default function StickyDiscoveryButton() {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasV4Nav, setHasV4Nav] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -19,9 +20,20 @@ export default function StickyDiscoveryButton() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // home-v4 has its own header: the nav pill morphs into this CTA on scroll,
-  // so a second floating button (and its full-width bar) would duplicate it.
-  if (pathname === "/home-v4") return null;
+  // Pages built on the v4 navbar already have this CTA: the nav pill itself
+  // morphs into it on scroll. A second floating button — and the full-width bar
+  // behind it — would sit on top of that morph.
+  //
+  // Detected from the DOM rather than matched against a list of routes: this
+  // component lives in the root layout, so a route list silently goes stale
+  // every time another page adopts the v4 header. The page's markup is
+  // committed before any effect runs, on first paint and on client-side
+  // navigation alike, so the query is safe here.
+  useEffect(() => {
+    setHasV4Nav(!!document.querySelector(".v4-header"));
+  }, [pathname]);
+
+  if (hasV4Nav) return null;
   if (!isVisible) return null;
 
   return (
@@ -32,4 +44,3 @@ export default function StickyDiscoveryButton() {
     </div>
   );
 }
-
