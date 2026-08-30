@@ -27,7 +27,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-[1440px] px-6 pb-24 pt-36 lg:px-[clamp(24px,4.167vw,60px)] lg:pb-[clamp(80px,20.7vw,208px)] lg:pt-[clamp(180px,20.486vw,295px)]">
+      <div className="relative mx-auto w-full max-w-[1440px] px-6 pb-10 pt-36 lg:px-[clamp(24px,4.167vw,60px)] lg:pb-[clamp(80px,20.7vw,208px)] lg:pt-[clamp(180px,20.486vw,295px)]">
         <p
           data-reveal
           className="font-manrope text-[14px] font-normal uppercase leading-[22px] text-white lg:text-[16px]"
