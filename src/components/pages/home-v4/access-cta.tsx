@@ -1,4 +1,5 @@
 import CtaButton from "./cta-button";
+import CtaWaves from "./cta-waves";
 
 export default function AccessCta() {
   return (
@@ -10,7 +11,9 @@ export default function AccessCta() {
           className="relative flex items-center overflow-hidden rounded-[32px] bg-[#0224e9] bg-cover bg-center px-4 py-16 text-center lg:min-h-[613px] lg:px-16 lg:py-20"
           style={{ backgroundImage: "url('/home-v4/cta-access-bg.webp')" }}
         >
-          <div className="flex w-full flex-col items-center">
+          <CtaWaves />
+
+          <div className="relative z-10 flex w-full flex-col items-center">
             <p className="font-manrope text-[14px] font-normal uppercase text-white lg:text-[16px]">
               Next Step
             </p>
