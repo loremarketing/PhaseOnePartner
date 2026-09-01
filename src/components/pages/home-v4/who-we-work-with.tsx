@@ -22,7 +22,7 @@ const AUDIENCES = [
 
 export default function WhoWeWorkWith() {
   return (
-    <section className="bg-white pb-16 pt-8 lg:py-[100px]">
+    <section className="bg-white pb-16 pt-8 lg:pb-[100px] lg:pt-10">
       <div className="mx-auto w-full max-w-[1440px] px-4 lg:px-[clamp(24px,4.167vw,60px)]">
         <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,590fr)_minmax(0,670fr)] lg:gap-[4.5455%]">
           <div data-reveal>

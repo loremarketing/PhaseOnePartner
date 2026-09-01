@@ -17,7 +17,7 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "manufacturing-industrial",
     title: "Manufacturing & Industrial",
-    intro: "Supporting operational excellence, workforce development, and digital transformation across manufacturing and industrial organizations.",
+    intro: "Supporting operational excellence, workforce development, and digital transformation across manufacturing and industrial organisations.",
     tiles: [
       { label: "Industrial Manufacturing", icon: "/industries/icons/01-industrial-manufacturing.svg" },
       { label: "Food Manufacturing", icon: "/industries/icons/01-food-manufacturing.svg" },
@@ -53,7 +53,7 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "healthcare-life-sciences",
     title: "Healthcare & Life Sciences",
-    intro: "Delivering specialized workforce and project solutions that support patient care, research, and healthcare innovation.",
+    intro: "Delivering specialised workforce and project solutions that support patient care, research, and healthcare innovation.",
     tiles: [
       { label: "Medical Clinics", icon: "/industries/icons/03-medical-clinics.svg" },
       { label: "Dental Clinics", icon: "/industries/icons/03-dental-clinics.svg" },
@@ -71,7 +71,7 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "financial-professional-services",
     title: "Financial & Professional Services",
-    intro: "Connecting organizations with professionals who enhance compliance, performance, and strategic decision-making.",
+    intro: "Connecting organisations with professionals who enhance compliance, performance, and strategic decision-making.",
     tiles: [
       { label: "Banking", icon: "/industries/icons/04-banking.svg" },
       { label: "Mortgage Broking", icon: "/industries/icons/04-mortgage-broking.svg" },
@@ -88,10 +88,10 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "education-training",
     title: "Education & Training",
-    intro: "Enabling educational institutions and training providers to strengthen learning outcomes and organizational performance.",
+    intro: "Enabling educational institutions and training providers to strengthen learning outcomes and organisational performance.",
     tiles: [
       { label: "Universities", icon: "/industries/icons/05-universities.svg" },
-      { label: "Registered Training Organizations", icon: "/industries/icons/05-registered-training-organizations.svg" },
+      { label: "Registered Training Organisations", icon: "/industries/icons/05-registered-training-organizations.svg" },
       { label: "Online Education", icon: "/industries/icons/05-online-education.svg" },
       { label: "Corporate Training", icon: "/industries/icons/05-corporate-training.svg" },
       { label: "Early Learning", icon: "/industries/icons/05-early-learning.svg" },
@@ -141,7 +141,7 @@ export const INDUSTRIES: Industry[] = [
   {
     slug: "food-agriculture-consumer",
     title: "Food, Agriculture & Consumer",
-    intro: "Helping organizations meet evolving consumer demands through skilled talent and industry-focused solutions.",
+    intro: "Helping organisations meet evolving consumer demands through skilled talent and industry-focused solutions.",
     tiles: [
       { label: "Agriculture", icon: "/industries/icons/09-agriculture.svg" },
       { label: "Food & Beverage", icon: "/industries/icons/09-food-and-beverage.svg" },

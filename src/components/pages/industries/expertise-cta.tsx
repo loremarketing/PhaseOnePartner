@@ -34,7 +34,7 @@ export default function ExpertiseCta() {
               style={{ transitionDelay: "90ms" }}
               className="mt-5 font-inter text-[16px] font-medium leading-[26px] text-white lg:mt-10 lg:max-w-[835px] lg:text-[clamp(1rem,1.25vw,1.125rem)] lg:leading-[clamp(1.5rem,1.944vw,1.75rem)]"
             >
-              We work with organizations across a wide range of sectors,
+              We work with organisations across a wide range of sectors,
               delivering tailored strategies designed to support growth,
               operational efficiency, and long-term success.
             </p>

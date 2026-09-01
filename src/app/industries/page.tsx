@@ -35,7 +35,7 @@ export default function IndustriesPage() {
       <ExploreSectors
         lead="Explore sectors"
         accent="we work with"
-        className="pt-16 lg:pt-[100px]"
+        className="pt-16 lg:pt-14"
       />
       {INDUSTRIES.map((industry, i) => (
         <IndustrySection key={industry.slug} industry={industry} index={i} />

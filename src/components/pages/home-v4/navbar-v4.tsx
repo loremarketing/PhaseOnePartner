@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
+import { HamburgerIcon } from "@/components/ui/hamburger-icon";
+import MobileMenu from "@/components/layout/mobile-menu";
 
 /**
  * Figma 1555:372 — a white pill floating over the hero.
@@ -120,16 +122,16 @@ export default function NavbarV4() {
       data-faded="false"
       data-scrolling="false"
       data-cta-hidden="false"
-      className="v4-header absolute inset-x-0 top-0 z-50 px-4 pt-4 lg:fixed lg:px-[clamp(16px,4.861vw,70px)] lg:pt-5"
+      className="v4-header absolute inset-x-0 top-0 z-50 px-6 pt-4 lg:fixed lg:px-[clamp(16px,4.861vw,70px)] lg:pt-5"
     >
-      <nav className="v4-nav mx-auto flex h-[64px] w-full max-w-[1300px] items-center rounded-[80px] bg-white px-5 lg:h-[72px] lg:px-6">
+      <nav className="v4-nav mx-auto flex h-14 w-full max-w-[1300px] items-center rounded-[80px] bg-white px-4 shadow-md lg:h-[72px] lg:px-6 lg:shadow-none">
         <Link href="/" className="v4-nav__fade shrink-0">
           <Image
             src="/logo.black.webp"
             alt="PhaseOne Partners"
             width={172}
             height={40}
-            className="h-[32px] w-auto lg:h-[40px]"
+            className="h-6 w-auto lg:h-[40px]"
             priority
           />
         </Link>
@@ -194,15 +196,6 @@ export default function NavbarV4() {
           className="v4-nav__cta flex h-[40px] w-[180px] shrink-0 items-center justify-center rounded-[80px] font-manrope text-[14px] font-medium xl:w-[212px]"
         >
           Book a discovery session
-          <span className="v4-nav__cta-arrow" aria-hidden="true">
-            <svg
-              viewBox="0 0 12.5828 8.58345"
-              className="h-[10px] w-[14px] shrink-0"
-              fill="currentColor"
-            >
-              <path d="M12.4121 4.70383C12.6397 4.47623 12.6397 4.10722 12.4121 3.87962L8.70318 0.170698C8.47558 -0.0568995 8.10657 -0.0568995 7.87897 0.170698C7.65137 0.398296 7.65137 0.767306 7.87897 0.994904L11.1758 4.29173L7.87897 7.58855C7.65137 7.81615 7.65137 8.18516 7.87897 8.41275C8.10657 8.64035 8.47558 8.64035 8.70318 8.41275L12.4121 4.70383ZM0 4.29173V4.87453H12V4.29173V3.70892H0V4.29173Z" />
-            </svg>
-          </span>
         </Link>
         </span>
 
@@ -210,67 +203,20 @@ export default function NavbarV4() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
-          className="ml-auto text-[#333] lg:hidden"
+          className="-m-2.5 ml-auto p-2.5 text-[#333] lg:hidden"
         >
-          {open ? <X className="size-6" /> : <Menu className="size-6" />}
+          {open ? (
+            <X className="h-8 w-8" aria-hidden="true" />
+          ) : (
+            <HamburgerIcon className="h-8 w-8" />
+          )}
         </button>
       </nav>
 
-      {/* mobile sheet */}
-      {open && (
-        <div className="mx-auto mt-2 w-full max-w-[1300px] rounded-[24px] bg-white p-5 shadow-lg lg:hidden">
-          <div className="mb-4 flex justify-end">
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              aria-label="Close menu"
-              className="text-[#333]"
-            >
-              <X className="size-5" />
-            </button>
-          </div>
-          <div className="flex flex-col gap-3">
-            {LINKS.map((l) => (
-              <Link
-                key={l.name}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="font-poppins text-[15px] text-[#333]"
-              >
-                {l.name}
-              </Link>
-            ))}
-            {EXPLORE.map((e) => (
-              <Link
-                key={e.name}
-                href={e.href}
-                onClick={() => setOpen(false)}
-                className="font-poppins text-[15px] text-[#333]"
-              >
-                {e.name}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="font-poppins text-[15px] text-[#333]"
-            >
-              Contact
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              style={{
-                backgroundImage:
-                  "linear-gradient(90deg, #0224e9 0%, #011483 100%)",
-              }}
-              className="mt-2 inline-flex h-[46px] items-center justify-center rounded-[80px] font-manrope text-[15px] font-medium text-white"
-            >
-              Book a discovery session
-            </Link>
-          </div>
-        </div>
-      )}
+      {/* The same full-screen panel the rest of the site uses. This header
+          previously dropped its own smaller card below the pill, which left
+          the page showing through behind it and looked nothing like /. */}
+      <MobileMenu open={open} onClose={() => setOpen(false)} />
     </header>
   );
 }

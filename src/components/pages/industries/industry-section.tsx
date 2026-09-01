@@ -28,8 +28,11 @@ export default function IndustrySection({
 
   return (
     <section
+      id={industry.slug}
       className={cn(
-        "relative isolate overflow-hidden py-16 lg:py-[100px]",
+        // scroll-mt clears the fixed v4 header when a sector pill on the home
+        // page (or the one above) deep-links straight to this band
+        "relative isolate scroll-mt-24 overflow-hidden py-16 lg:scroll-mt-[110px] lg:py-[100px]",
         tinted ? "bg-[#f0f0f0]" : "bg-white"
       )}
     >
@@ -37,20 +40,12 @@ export default function IndustrySection({
           #0224e9 and rotated, so it is exported rather than rebuilt in CSS.
           Each is cropped to the corner content that is actually visible in the
           design, so it anchors flush to its corner and stays correct as the
-          band height changes with tile count. */}
+          band height changes with tile count.
+          Desktop only. At mobile widths there is no room for the artwork to
+          resolve into a ribbon, so it reads as a stray blue line running off
+          the edge of the block rather than as decoration. */}
       {tinted && (
         <>
-          {/* The mobile frame uses its own, much narrower ribbon (1555:1423)
-              sitting below the heading — not a scaled-down desktop crop, which
-              would be far too wide and swamp the intro copy. */}
-          <Image
-            src="/industries/ribbon-tr-mobile.webp"
-            alt=""
-            aria-hidden="true"
-            width={168}
-            height={210}
-            className="pointer-events-none absolute right-[-92px] top-[150px] -z-10 w-[168px] max-w-none select-none lg:hidden"
-          />
           <Image
             src="/industries/ribbon-tr.webp"
             alt=""
@@ -65,7 +60,7 @@ export default function IndustrySection({
             aria-hidden="true"
             width={120}
             height={145}
-            className="pointer-events-none absolute bottom-0 left-0 -z-10 w-[70px] max-w-none select-none lg:w-[120px]"
+            className="pointer-events-none absolute bottom-0 left-0 -z-10 hidden w-[120px] max-w-none select-none lg:block"
           />
         </>
       )}
@@ -97,21 +92,22 @@ export default function IndustrySection({
               // reads as intentional; the modulo restarts it each row
               style={{ transitionDelay: `${(i % 4) * 70}ms` }}
             >
-              {/* The hover styling lives on this inner element, not the <li>.
-                  The reveal rules in globals.css are unlayered, so
+              {/* Deliberately inert. Until each sector becomes its own page
+                  these are not links, and a hover affordance would invite
+                  clicks that go nowhere.
+                  Still an inner element rather than the <li> itself: the
+                  reveal rules in globals.css are unlayered, so
                   `[data-reveal][data-revealed="true"] { transform: none }`
-                  outranks any Tailwind hover:-translate utility on the same
-                  node and the lift would silently never happen. Keeping the
-                  two on separate elements lets each own its transform. */}
-              <div className="group flex h-full min-h-[142px] flex-col items-center justify-center gap-[10px] rounded-[16px] bg-white px-4 py-5 text-center shadow-[0px_4px_40px_0px_rgba(0,0,0,0.06)] transition-[translate,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0px_12px_28px_0px_rgba(2,36,233,0.16)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:min-h-[114.83px] lg:flex-row lg:justify-start lg:gap-[14px] lg:rounded-[32px] lg:px-8 lg:py-0 lg:text-left">
+                  would outrank any transform set on the same node. */}
+              <div className="flex h-full min-h-[142px] flex-col items-center justify-center gap-[10px] rounded-[16px] bg-white px-4 py-5 text-center shadow-[0px_4px_40px_0px_rgba(0,0,0,0.06)] lg:min-h-[114.83px] lg:flex-row lg:justify-start lg:gap-[14px] lg:rounded-[32px] lg:px-8 lg:py-0 lg:text-left">
                 <Image
                   src={tile.icon}
                   alt=""
                   width={60}
                   height={60}
-                  className="size-[60px] shrink-0 transition-[scale] duration-300 ease-out group-hover:scale-[1.08] motion-reduce:group-hover:scale-100"
+                  className="size-[60px] shrink-0"
                 />
-                <span className="font-manrope text-[16px] font-medium leading-[20px] text-black transition-colors duration-300 group-hover:text-[#0224e9] lg:text-[20px] lg:leading-[22px]">
+                <span className="font-manrope text-[16px] font-medium leading-[20px] text-black lg:text-[20px] lg:leading-[22px]">
                   {tile.label}
                 </span>
               </div>

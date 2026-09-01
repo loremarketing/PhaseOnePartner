@@ -316,8 +316,7 @@ $green-spring: rgba(183,188,180,1); */
   .v4-nav {
     --btn-w: 180px; /* resting CTA width, per Figma */
     --btn-w-end: 248px; /* collapsed CTA width: 186px label + ~31px each side */
-    --cta-hover-grow: 22px; /* room the arrow needs when it slides in */
-    max-width: calc(1300px - (1300px - var(--btn-w-end)) * var(--shrink, 0));
+      max-width: calc(1300px - (1300px - var(--btn-w-end)) * var(--shrink, 0));
     height: calc(72px - 22px * var(--shrink, 0));
     padding-inline: calc(24px * (1 - var(--shrink, 0)));
     background-color: rgb(255 255 255 / var(--fade, 1));
@@ -363,40 +362,32 @@ $green-spring: rgba(183,188,180,1); */
     transition: opacity 260ms ease;
   }
 
+  /* Hover must NOT change the button's width. The pill is one flex row and
+     the links sit in the flex-1 slot beside the CTA, so 22px of growth pulled
+     every label 11px to the left - which reads as the menu shifting about.
+     Feedback is colour only — the same solid #011483 the page CTAs settle on,
+     so every button on the site darkens the same way. There is no arrow and no
+     size change in any state, expanded or collapsed. */
+  .v4-nav__cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-color: #011483;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
   .v4-nav__cta:hover {
-    width: calc(
-      var(--btn-w) + (var(--btn-w-end) - var(--btn-w)) * var(--shrink, 0) +
-        var(--cta-hover-grow)
-    );
     color: #fff;
     border-color: #011483;
   }
-  .v4-nav__cta:hover::before {
+  .v4-nav__cta:hover::after {
     opacity: 1;
   }
-
-  /* arrow slides out of zero width, so the button widens around it */
-  .v4-nav__cta-arrow {
-    display: inline-flex;
-    align-items: center;
-    width: 0;
-    margin-left: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition:
-      width 320ms cubic-bezier(0.4, 0, 0.2, 1),
-      margin-left 320ms cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 220ms ease;
-  }
-  .v4-nav__cta:hover .v4-nav__cta-arrow {
-    width: 14px;
-    margin-left: 8px;
+  .v4-nav__cta:active::after {
+    background-color: #010c4a;
     opacity: 1;
-  }
-
-  /* fully collapsed the pill IS the button, so it has to widen along with it */
-  .v4-header[data-collapsed="true"] .v4-nav:has(.v4-nav__cta:hover) {
-    max-width: calc(var(--btn-w-end) + var(--cta-hover-grow));
   }
 
   /* The duck-away lives on a wrapper, not on the button itself: it fires DURING
