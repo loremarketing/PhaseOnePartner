@@ -13,11 +13,20 @@ export default function Hero() {
       className="relative isolate w-full overflow-hidden "
       style={{
         backgroundImage:
-          "linear-gradient(180.81deg, rgb(2,36,233) 1.06%, rgb(255,255,255) 98.96%)",
+          "linear-gradient(180deg, rgb(2,36,233) 1.06%, rgb(255,255,255) 98.96%)",
       }}
     >
+      {/* Figma gives this gradient as 180.81deg, and that 0.81 degrees of tilt
+          is what stops it landing on white. A tilted gradient's axis runs
+          corner to corner, so one bottom corner reaches the final stop while
+          the other is still short of it — and the gap grows with the viewport.
+          Measured at the bottom edge: off by 1/255 at 1440px, by 3 at 2560px,
+          by 5 at 3440px, which on a wide monitor reads as a blue band above the
+          white section below. Straight down, it is uniformly white at any
+          width. The tilt was never visible for its own sake. */}
       {/* white ribbon — Figma 1555:354: white @ 20%, masked, x -81 / y 188 / 2010.6 x 680.6 */}
       <WaveLines
+        fadeBottom
         className="bg-white/20"
         style={{
           left: "-5.625%",

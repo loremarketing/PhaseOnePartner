@@ -6,6 +6,8 @@ import Link from "next/link";
 import { ChevronDown, X } from "lucide-react";
 import { HamburgerIcon } from "@/components/ui/hamburger-icon";
 import MobileMenu from "@/components/layout/mobile-menu";
+import NavDropdown from "@/components/layout/nav-dropdown";
+import { navigation } from "@/components/layout/nav-items";
 
 /**
  * Figma 1555:372 — a white pill floating over the hero.
@@ -27,11 +29,9 @@ const LINKS = [
   { name: "For Business Owners", href: "/for-founders" },
 ];
 
-const EXPLORE = [
-  { name: "About", href: "/about-us" },
-  { name: "Terms and Conditions", href: "/terms-and-conditions" },
-  { name: "Privacy Policy", href: "/privacy-policy" },
-];
+/* Same entries, same icons, same panel as the marketing header — read from the
+   shared tree so the two menus cannot drift apart again. */
+const EXPLORE = navigation.find((i) => i.name === "Explore")?.dropdown ?? [];
 
 /** scroll distance over which the pill fully becomes the button */
 const MORPH_DISTANCE = 200;
@@ -142,7 +142,7 @@ export default function NavbarV4() {
             <Link
               key={l.name}
               href={l.href}
-              className="whitespace-nowrap font-poppins text-[14px] font-normal text-[#333] transition-colors hover:text-[#0224e9]"
+              className="whitespace-nowrap font-poppins text-[15px] font-normal text-[#1a1a1a] transition-colors hover:text-[#0224e9]"
             >
               {l.name}
             </Link>
@@ -155,32 +155,24 @@ export default function NavbarV4() {
           >
             <button
               type="button"
-              className="flex shrink-0 items-center gap-1.5 whitespace-nowrap font-poppins text-[14px] font-normal text-[#333] transition-colors hover:text-[#0224e9]"
+              className="flex shrink-0 items-center gap-1.5 whitespace-nowrap font-poppins text-[15px] font-normal text-[#1a1a1a] transition-colors hover:text-[#0224e9]"
               aria-expanded={exploreOpen}
             >
               Explore
-              <ChevronDown className="size-5" strokeWidth={1.5} />
+              <ChevronDown
+                className={`size-5 transition-transform duration-200 ${
+                  exploreOpen ? "rotate-180" : ""
+                }`}
+                strokeWidth={1.5}
+              />
             </button>
-            {exploreOpen && (
-              <div className="absolute left-1/2 top-full w-56 -translate-x-1/2 pt-3">
-                <div className="rounded-2xl border border-[#0224e9]/15 bg-white p-2 shadow-lg">
-                  {EXPLORE.map((e) => (
-                    <Link
-                      key={e.name}
-                      href={e.href}
-                      className="block rounded-xl px-3 py-2 font-poppins text-[14px] text-[#333] transition-colors hover:bg-[#0224e9]/5 hover:text-[#0224e9]"
-                    >
-                      {e.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
+
+            <NavDropdown items={EXPLORE} open={exploreOpen} gap="tall" />
           </div>
 
           <Link
             href="/contact"
-            className="whitespace-nowrap font-poppins text-[14px] font-normal text-[#333] transition-colors hover:text-[#0224e9]"
+            className="whitespace-nowrap font-poppins text-[15px] font-normal text-[#1a1a1a] transition-colors hover:text-[#0224e9]"
           >
             Contact
           </Link>

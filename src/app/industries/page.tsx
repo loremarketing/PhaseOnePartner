@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import NavbarV4 from "@/components/pages/home-v4/navbar-v4";
+import NavbarV4 from "@/components/layout/navbar-v4";
 import ScrollReveal from "@/components/pages/home-v4/scroll-reveal";
 import ExploreSectors from "@/components/pages/home-v4/explore-sectors";
 import Hero from "@/components/pages/industries/hero";

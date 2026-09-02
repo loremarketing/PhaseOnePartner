@@ -6,7 +6,7 @@ import WaveLines from "@/components/pages/home-v4/wave-lines";
  * Deliberately NOT the Figma frame (1583:2824), which specified a blue → navy
  * gradient behind two separately masked wave layers. The client asked for this
  * to match the home page instead, so it now shares that hero's treatment
- * exactly: the same 180.81deg blue → white gradient and the same ribbon masked
+ * exactly: the same blue → white gradient and the same ribbon masked
  * from /bg/hero-lines-bg.webp at white 20%. The two banners read as one family,
  * and this one dissolves into the white section beneath it rather than ending
  * on a hard navy edge.
@@ -22,11 +22,12 @@ export default function Hero() {
       className="relative isolate w-full overflow-hidden pb-28 pt-32 lg:min-h-[589px] lg:pb-[100px] lg:pt-[clamp(150px,13.7vw,197px)]"
       style={{
         backgroundImage:
-          "linear-gradient(180.81deg, rgb(2,36,233) 1.06%, rgb(255,255,255) 98.96%)",
+          "linear-gradient(180deg, rgb(2,36,233) 1.06%, rgb(255,255,255) 98.96%)",
       }}
     >
       {/* same ribbon, same placement as the home hero (Figma 1555:354) */}
       <WaveLines
+        fadeBottom
         className="bg-white/20"
         style={{
           left: "-5.625%",
@@ -39,7 +40,7 @@ export default function Hero() {
       <div className="relative mx-auto flex w-full max-w-[1440px] flex-col items-center px-4 text-center lg:px-[clamp(24px,4.167vw,60px)]">
         <h1
           data-reveal
-          className="font-manrope text-[32px] font-medium uppercase leading-[42px] lg:max-w-[867px] lg:text-[clamp(2.5rem,4.444vw,4rem)] lg:leading-[clamp(3rem,5.139vw,4.625rem)]"
+          className="font-manrope text-[32px] font-bold uppercase leading-[42px] sm:text-[40px] lg:max-w-[867px] lg:text-[clamp(2.5rem,4.444vw,4rem)] lg:leading-[clamp(3rem,5.139vw,4.625rem)]"
         >
           {/* the Figma accent (#0085f2) was picked against a navy background and
               lands at 1.2:1 on this lighter one — the brand navy keeps the

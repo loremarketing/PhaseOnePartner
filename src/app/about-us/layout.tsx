@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/layout/navbar";
+import NavbarV4 from "@/components/layout/navbar-v4";
 
 export const metadata: Metadata = {
   title: "AboutPhaseOne Partners- PhaseOne Partners",
@@ -14,7 +14,7 @@ export default function AboutUsLayout({
 }>) {
   return (
     <div className="min-h-screen">
-      <Navbar isLight={true} />
+      <NavbarV4 />
       {children}
     </div>
   );

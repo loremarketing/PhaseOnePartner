@@ -1,21 +1,31 @@
+import StatNumber from "./stat-number";
+
+/* The figure is stored as a number so it can be counted up; `note` is the
+   superscript that hangs off it, which is not part of the count. */
 const STATS = [
   {
-    value: "73,179",
-    suffix: null,
+    value: 73179,
+    prefix: undefined,
+    suffix: undefined,
+    note: null,
     color: "#0224e9",
     weight: "font-bold",
     body: "mid-market companies operate in Australia, creating a deep but fragmented opportunity set.",
   },
   {
-    value: "90%",
-    suffix: "*",
+    value: 90,
+    prefix: undefined,
+    suffix: "%",
+    note: "*",
     color: "#011483",
     weight: "font-semibold",
     body: "of business sales close off-market, without a public process, the best opportunities are found, not listed.",
   },
   {
-    value: "$139B",
-    suffix: null,
+    value: 139,
+    prefix: "$",
+    suffix: "B",
+    note: null,
     color: "#3d70ff",
     weight: "font-semibold",
     body: "in private capital is managed across Australia, increasing competition for high-quality assets.",
@@ -63,10 +73,15 @@ export default function WhyOriginationMatters() {
                   className={`font-manrope text-[60px] leading-[60px] lg:text-[clamp(3.5rem,5.556vw,5rem)] ${s.weight}`}
                   style={{ color: s.color }}
                 >
-                  {s.value}
-                  {s.suffix && (
+                  <StatNumber
+                    value={s.value}
+                    prefix={s.prefix}
+                    suffix={s.suffix}
+                    delay={i * 160}
+                  />
+                  {s.note && (
                     <span className="align-super text-[38px] lg:text-[50px]">
-                      {s.suffix}
+                      {s.note}
                     </span>
                   )}
                 </p>

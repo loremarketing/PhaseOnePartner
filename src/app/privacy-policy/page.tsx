@@ -1,4 +1,4 @@
-import Navbar from "@/components/layout/navbar";
+import NavbarV4 from "@/components/layout/navbar-v4";
 
 export const metadata = {
   title: "Privacy Policy - PhaseOne Partners",
@@ -8,7 +8,7 @@ export const metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <div className="relative w-full overflow-hidden min-h-screen bg-background">
-      <Navbar isLight={true} />
+      <NavbarV4 />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-[#0224e9] to-[#011483] min-h-[300px] lg:min-h-[400px] pt-[165px] lg:pt-[200px] pb-12 lg:pb-16">

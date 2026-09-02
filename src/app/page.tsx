@@ -6,13 +6,13 @@ import InvestorFounder from "@/components/pages/home/investor-founder";
 import { WhoWeAre } from "@/components/pages/home/who-we-are";
 import BlogSection from "@/components/pages/home/blog-section";
 import { Spotlight } from "@/components/ui/spotlight-new";
-import Navbar from "@/components/layout/navbar";
+import NavbarV4 from "@/components/layout/navbar-v4";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <NavbarV4 />
       <HeroSection />
       <InvestorFounder />
       <HomeVideo />
