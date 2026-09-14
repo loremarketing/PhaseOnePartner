@@ -4,7 +4,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata = buildMetadata({
   title: "Privacy Policy",
   description:
-    "How PhaseOne Partners Pty Ltd collects, uses, stores and protects your personal information, in line with the Privacy Act 1988 (Cth) and the Australian Privacy Principles.",
+    "How PhaseOne Partners collects, uses and protects your personal information under the Privacy Act 1988 (Cth) and the Australian Privacy Principles.",
   path: "/privacy-policy",
 });
 

@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata = buildMetadata({
   title: "For Business Owners",
   description:
-    "Direct access to vetted private equity funds and strategic buyers already investing in your industry. No broad auctions, no wasted presentations — a fast, confidential process built around your goals.",
+    "Direct access to vetted private equity funds and strategic buyers already investing in your industry. No auctions, no wasted presentations.",
   path: "/for-founders",
 });
 

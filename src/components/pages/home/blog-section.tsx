@@ -77,7 +77,7 @@ export default function BlogSection() {
                     <div className="w-full mx-auto pt-2">
                       <Link
                         href="#"
-                        className="w-full border-3 capitalize border-primary flex items-center justify-center mx-auto rounded-full px-4 py-1 text-center font-medium font-lato hover:cursor-[icons/arrow.svg]  gap-2 text-primary   hover:bg-primary hover:text-background transition-all duration-300 group/link"
+                        className="w-full border-3 capitalize border-primary flex items-center justify-center mx-auto rounded-full px-4 py-1 text-center font-medium font-inter hover:cursor-[icons/arrow.svg]  gap-2 text-primary   hover:bg-primary hover:text-background transition-all duration-300 group/link"
                       >
                         Read more
                       </Link>

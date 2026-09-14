@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 // by exactly nothing — no `font-bricolage-grotesque` class exists anywhere in
 // the codebase. The weights kept below are only those actually used; see the
 // note on each.
-import { Manrope, Poppins, Lato, Inter } from "next/font/google";
+import { Manrope, Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/footer";
 import SmoothScrolling from "@/components/smooth-scrolling";
@@ -30,15 +30,6 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   variable: "--font-poppins",
-});
-
-// Only two live usages, both `font-lato font-medium`. NOTE: 500 is not loaded,
-// so those already fall back to 400 — this is pre-existing, and adding 500 here
-// would change how they render. Leave it.
-const lato = Lato({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-lato",
 });
 
 const inter = Inter({
@@ -186,7 +177,7 @@ fbq('track', 'PageView');
         />
       </head>
       <body
-        className={`${manrope.variable} ${poppins.variable} ${lato.variable} ${inter.variable} antialiased`}
+        className={`${manrope.variable} ${poppins.variable} ${inter.variable} antialiased`}
       >
         <noscript>
           <iframe

@@ -14,7 +14,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata = buildMetadata({
   title: "Deal Origination for Private Capital",
   description:
-    "PhaseOne Partners connects founder-led businesses with the right capital partners through proprietary, off-market deal origination across Australia and New Zealand.",
+    "Proprietary, off-market deal origination across Australia and New Zealand, connecting founder-led businesses with the right capital partners.",
   path: "/",
 });
 

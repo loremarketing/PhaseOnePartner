@@ -10,7 +10,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata = buildMetadata({
   title: "Industries We Service",
   description:
-    "We partner with organisations across a diverse range of industries, helping founders and leadership teams unlock growth, improve operational performance, and create long-term value.",
+    "We partner with organisations across many industries, helping founders and leadership teams unlock growth and create long-term value.",
   path: "/industries",
 });
 

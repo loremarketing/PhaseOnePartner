@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata = buildMetadata({
   title: "For Capital Partners",
   description:
-    "Proprietary, off-market deal flow from founder-led businesses before they reach the market. A dedicated origination engine that fills your pipeline in weeks rather than 12–18 months.",
+    "Proprietary, off-market deal flow from founder-led businesses before they reach the market. Fill your pipeline in weeks, not 12-18 months.",
   path: "/for-investors",
 });
 

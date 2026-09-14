@@ -24,7 +24,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata = buildMetadata({
   title: "Proprietary deal flow, before the market sees it",
   description:
-    "Embedded within your investment team. We source proprietary off-market opportunities through dedicated buy-side origination, with direct founder access across your target sectors.",
+    "Embedded in your investment team. We source proprietary off-market opportunities through buy-side origination, with direct founder access.",
   path: "/home-v4",
   noIndex: true,
 });

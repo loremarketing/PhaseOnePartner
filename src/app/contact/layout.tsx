@@ -3,7 +3,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const metadata = buildMetadata({
   title: "Contact Us",
   description:
-    "Book a discovery session with PhaseOne Partners. Talk to our team about deal origination, capital partnerships and off-market opportunities across Australia and New Zealand.",
+    "Book a discovery session with PhaseOne Partners. Talk to our team about deal origination and off-market opportunities across Australia and NZ.",
   path: "/contact",
 });
 
