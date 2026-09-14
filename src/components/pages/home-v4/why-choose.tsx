@@ -139,7 +139,7 @@ export default function WhyChoose() {
                   }`}
                 >
                   <span className="flex size-[24px] shrink-0 items-center justify-center rounded-full bg-[#333]">
-                    <Image src="/home-v4/cross.svg" alt="" width={11} height={11} className="size-[11px]" />
+                    <Image src="/home-v4/cross.svg" alt="Not included" width={11} height={11} className="size-[11px]" />
                   </span>
                   <p className={`text-[#333] ${body}`}>{row.traditional}</p>
                 </div>

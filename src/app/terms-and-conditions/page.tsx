@@ -1,9 +1,12 @@
 import NavbarV4 from "@/components/layout/navbar-v4";
+import { buildMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: "Terms and Conditions - PhaseOne Partners",
-  description: "Terms and Conditions for PhaseOne Partners Pty Ltd",
-};
+export const metadata = buildMetadata({
+  title: "Terms and Conditions",
+  description:
+    "The terms governing your use of the PhaseOne Partners website and the services provided by PhaseOne Partners Pty Ltd (ABN 97 679 376 464).",
+  path: "/terms-and-conditions",
+});
 
 export default function TermsAndConditionsPage() {
   return (

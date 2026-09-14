@@ -1,52 +1,65 @@
 import type { Metadata } from "next";
-import {
-  Bricolage_Grotesque,
-  Manrope,
-  Poppins,
-  Lato,
-  Inter,
-} from "next/font/google";
+// Bricolage Grotesque used to be loaded here at six weights and was referenced
+// by exactly nothing — no `font-bricolage-grotesque` class exists anywhere in
+// the codebase. The weights kept below are only those actually used; see the
+// note on each.
+import { Manrope, Poppins, Lato, Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/footer";
 import SmoothScrolling from "@/components/smooth-scrolling";
 import { ThemeProvider } from "@/components/theme-provided";
 import StickyDiscoveryButton from "@/components/ui/sticky-discovery-button";
 import Script from "next/script";
+import { siteConfig } from "@/lib/config/site";
+import { OrganizationJsonLd } from "@/components/seo/organization-jsonld";
+import CookieBanner from "@/components/consent/cookie-banner";
 
-const bricol = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-bricolage-grotesque",
-});
-
+// The body font (globals.css sets `font-family: var(--font-manrope)` on body),
+// so it also renders every element that carries only a weight class and no
+// family class. All six weights are genuinely in use — 300 via `font-light` in
+// investor-founder.tsx and 800 via seventeen `font-extrabold` orphans — so
+// none can be dropped.
 const manrope = Manrope({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-manrope",
 });
 
+// 400 on leaf elements, 600/700 inherited by the nav dropdown panel.
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "600", "700"],
   variable: "--font-poppins",
 });
 
+// Only two live usages, both `font-lato font-medium`. NOTE: 500 is not loaded,
+// so those already fall back to 400 — this is pre-existing, and adding 500 here
+// would change how they render. Leave it.
 const lato = Lato({
   subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
+  weight: ["400"],
   variable: "--font-lato",
 });
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
 });
 
+/**
+ * Site-wide defaults only. Every route composes its own title, description,
+ * canonical and share card through `buildMetadata` — see `src/lib/seo/metadata.ts`.
+ *
+ * Deliberately NO `alternates` here: an inherited canonical would silently point
+ * every route that forgot to set one at the homepage. And deliberately no
+ * `title.template` — `buildMetadata` already appends the brand, so a template
+ * would double it up ("About Us | PhaseOne Partners | PhaseOne Partners").
+ */
 export const metadata: Metadata = {
-  title: "PhaseOne Partners",
-  description:
-    "Connecting businesses with the right capital partners through strategic deal origination.",
+  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.name,
+  description: siteConfig.description,
 };
 
 export default function RootLayout({
@@ -55,8 +68,61 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-AU">
       <head>
+        {/*
+          Consent bootstrap. MUST be the first script in the document and MUST
+          be synchronous — Consent Mode only works if the `default` state is on
+          the dataLayer before any tag reads it, and `next/script` (even
+          beforeInteractive) gives no ordering guarantee strong enough for that.
+          An inline script that assigns a few globals costs nothing; it is
+          fetching an external file from <head> that is expensive, which is why
+          the Meta Pixel below was moved off this path.
+
+          Everything starts denied. The banner
+          (src/components/consent/cookie-banner.tsx) is what grants it, and a
+          returning visitor's stored choice is replayed here so they are not
+          re-anonymised for the wait_for_update window on every page load.
+
+          The storage key and payload shape are duplicated from
+          src/lib/analytics/consent.ts on purpose — this string cannot import.
+          Change one, change the other.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+window.gtag = window.gtag || gtag;
+gtag('consent','default',{
+  ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied',
+  analytics_storage:'denied', functionality_storage:'granted',
+  security_storage:'granted', wait_for_update:500
+});
+gtag('set','ads_data_redaction',true);
+gtag('set','url_passthrough',true);
+try{
+  var c=JSON.parse(localStorage.getItem('p1p-consent')||'null');
+  if(c&&c.v===1){
+    gtag('consent','update',{
+      analytics_storage:c.analytics?'granted':'denied',
+      ad_storage:c.ads?'granted':'denied',
+      ad_user_data:c.ads?'granted':'denied',
+      ad_personalization:c.ads?'granted':'denied'
+    });
+    if(c.ads) window.__p1pFbConsent='grant';
+  }
+}catch(e){}
+/* Scroll reveals are hidden only when this class is present, so a crawler or
+   browser that never runs JS sees the content — including the primary heading
+   on /industries and /home-v4 — instead of opacity:0. Set here rather than in a
+   deferred script so it lands before the body paints and nothing flashes.
+   (Deliberately no literal heading tag in this comment: it sits in the served
+   HTML, and regex-based SEO crawlers count it as a real element.) */
+document.documentElement.classList.add('js-reveal');
+            `,
+          }}
+        />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-2ZP6XTM3SH"
@@ -81,6 +147,26 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-MWJS3BXW');
           `}
         </Script>
+        {/*
+          Meta Pixel, now consent-gated: `fbq('consent','revoke')` before the
+          first track call makes the pixel queue events instead of sending them,
+          and the banner calls `fbq('consent','grant')` to flush that queue.
+
+          DELIBERATELY still a raw inline <script> rather than `next/script`.
+          Moving it to `afterInteractive` is the obvious improvement — it is the
+          one render-blocking third-party script left on the page — but it also
+          removes a delay the homepage has come to depend on: the mobile
+          entrance animation in `investor-founder.tsx` measures its ScrollTrigger
+          during hydration, and without this script holding head parsing back it
+          measures unsettled layout and the animation stops running. Verified
+          with a screenshot diff of the homepage at 390px: deferred, it failed in
+          five loads out of five.
+
+          So the gating lands now and the deferral waits. To pick it up later,
+          make that animation independent of load timing first (an
+          IntersectionObserver is the right tool), then switch this to
+          `<Script id="meta-pixel" strategy="afterInteractive">`.
+        */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -93,13 +179,14 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '2437767633292999');
+if (window.__p1pFbConsent !== 'grant') { fbq('consent', 'revoke'); }
 fbq('track', 'PageView');
             `,
           }}
         />
       </head>
       <body
-        className={`${bricol.variable} ${manrope.variable} ${poppins.variable} ${lato.variable} ${inter.variable} antialiased`}
+        className={`${manrope.variable} ${poppins.variable} ${lato.variable} ${inter.variable} antialiased`}
       >
         <noscript>
           <iframe
@@ -109,15 +196,14 @@ fbq('track', 'PageView');
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=2437767633292999&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
+        {/*
+          The Meta <noscript> tracking pixel that used to sit here has been
+          removed. It fired a request to facebook.com/tr on page load with no
+          JavaScript involved, which means no consent mechanism could ever gate
+          it — it tracked every visitor unconditionally, including those who
+          decline below. The GTM <noscript> above stays: GTM is consent-aware.
+        */}
+        <OrganizationJsonLd />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -129,6 +215,10 @@ fbq('track', 'PageView');
             {children}
             <Footer />
           </SmoothScrolling>
+          {/* Outside SmoothScrolling deliberately: Lenis can put a transform on
+              its subtree, and a transformed ancestor makes `position: fixed`
+              resolve against that ancestor instead of the viewport. */}
+          <CookieBanner />
         </ThemeProvider>
       </body>
     </html>

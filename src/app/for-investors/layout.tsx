@@ -1,11 +1,14 @@
-import type { Metadata } from "next";
 import NavbarV4 from "@/components/layout/navbar-v4";
+import { FaqJsonLd } from "@/components/seo/faq-jsonld";
+import { INVESTOR_FAQS } from "@/components/pages/investor/investor-faqs";
+import { buildMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "For Capital Partners - PhaseOne Partners",
+export const metadata = buildMetadata({
+  title: "For Capital Partners",
   description:
-    "For Capital Partners - Connecting you with founder-led businesses before they even reach the market.",
-};
+    "Proprietary, off-market deal flow from founder-led businesses before they reach the market. A dedicated origination engine that fills your pipeline in weeks rather than 12–18 months.",
+  path: "/for-investors",
+});
 
 export default function ForinvestorsLayout({
   children,
@@ -14,6 +17,7 @@ export default function ForinvestorsLayout({
 }>) {
   return (
     <div className="min-h-screen">
+      <FaqJsonLd faqs={INVESTOR_FAQS} />
       <NavbarV4 />
       {children}
     </div>

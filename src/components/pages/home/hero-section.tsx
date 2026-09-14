@@ -10,7 +10,7 @@ export default function HeroSection() {
         <div className="w-full h-full relative">
           <Image
             src="/hero-bg-chroped-2.webp"
-            alt="Hero Section Background"
+            alt=""
             width={1000}
             height={1000}
             className="w-fit absolute bottom-0 h-full max-h-[1000px] lg:max-h-[800px] right-0"
@@ -21,7 +21,7 @@ export default function HeroSection() {
         <div className="flex justify-center mb-6 z-10">
           <Image
             src="/logo.black.webp"
-            alt="PhaseOne Logo"
+            alt="PhaseOne Partners"
             width={800}
             height={300}
             className="w-full max-w-[300px] md:max-w-[500px] h-auto object-contain"
@@ -29,7 +29,11 @@ export default function HeroSection() {
           />
         </div>
         <div className="space-y-6 lg:mt-12 mt-6 z-10">
-          <p className="text-3xl lg:text-[36px] font-bold font-manrope lg:leading-[100%]">
+          {/* h1, not p: this is the homepage's primary heading and the page had
+              none at all. Tailwind's preflight resets h1 to inherit font-size
+              and weight, and nothing in globals.css styles headings by element,
+              so the identical className renders identically. */}
+          <h1 className="text-3xl lg:text-[36px] font-bold font-manrope lg:leading-[100%]">
             The new era of{" "}
             <span
               className="underline"
@@ -42,7 +46,7 @@ export default function HeroSection() {
               deal origination
             </span>{" "}
             starts here.
-          </p>
+          </h1>
           {/* <p className="text-xl  lg:text-[29.57px] ">
             We connect only the right businesses with the right capital partners
           </p> */}

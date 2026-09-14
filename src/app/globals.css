@@ -36,9 +36,6 @@
   --sidebar-accent-foreground: oklch(0.2101 0.0318 264.6645);
   --sidebar-border: oklch(0.9276 0.0058 264.5313);
   --sidebar-ring: oklch(0.443 0.2784 264.35);
-  --font-bricolage-grotesque:
-    var(--font-bricolage-grotesque), Bricolage Grotesque, ui-sans-serif,
-    sans-serif, system-ui;
   --font-serif: serif;
   --font-manrope:
     var(--font-manrope), Manrope, ui-sans-serif, sans-serif, system-ui;
@@ -98,9 +95,6 @@
   --sidebar-accent-foreground: oklch(0.8109 0 0);
   --sidebar-border: oklch(0.252 0 0);
   --sidebar-ring: oklch(0.7214 0.1337 49.9802);
-  --font-bricolage-grotesque:
-    var(--font-bricolage-grotesque), Bricolage Grotesque, ui-sans-serif,
-    sans-serif, system-ui;
   --font-serif: serif;
   --font-manrope:
     var(--font-manrope), Manrope, ui-sans-serif, sans-serif, system-ui;
@@ -159,7 +153,6 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-bricolage-grotesque: var(--font-bricolage-grotesque);
   --font-manrope: var(--font-manrope);
   --font-poppins: var(--font-poppins);
   --font-lato: var(--font-lato);
@@ -446,7 +439,16 @@ $green-spring: rgba(183,188,180,1); */
    as each element enters the viewport. Stagger comes from an inline
    `transition-delay` on the element itself.
 --------------------------------------------------------------------------- */
-[data-reveal] {
+/* Every rule below is scoped to `html.js-reveal`, a class the inline bootstrap
+   in src/app/layout.tsx adds before <body> paints.
+
+   Without that scope these elements start at opacity:0 for everyone, including
+   anything that never runs JavaScript — which put the <h1> on /industries and
+   /home-v4 in the "present in the HTML but rendered invisible" state that an
+   SEO audit reports as an empty heading. Gating on the class means no-JS gets
+   the finished state and a real browser still gets the animation, since the
+   class lands during head parse. */
+html.js-reveal [data-reveal] {
   opacity: 0;
   transform: translateY(18px);
   transition:
@@ -454,13 +456,13 @@ $green-spring: rgba(183,188,180,1); */
     transform 620ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-[data-reveal][data-revealed="true"] {
+html.js-reveal [data-reveal][data-revealed="true"] {
   opacity: 1;
   transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] {
+  html.js-reveal [data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;

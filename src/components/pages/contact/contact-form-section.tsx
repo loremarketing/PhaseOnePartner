@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { track, trackAdsConversion, trackMeta } from "@/lib/analytics/track";
 
 export default function ContactFormSection() {
   const router = useRouter(); // Get router instance
@@ -47,6 +48,15 @@ export default function ContactFormSection() {
       });
 
       if (response.ok) {
+        // Fired here rather than on /thank-you: that page is directly linkable
+        // and is also the browser-back target, so counting it on mount would
+        // inflate conversions. Submit time is the single source of truth.
+        // router.push is a client-side navigation, so the page is never torn
+        // down and these calls complete without needing an event_callback.
+        track("generate_lead", { form: "contact", currency: "AUD" });
+        trackAdsConversion(process.env.NEXT_PUBLIC_ADS_LEAD_LABEL);
+        trackMeta("Lead", { content_name: "Contact form" });
+
         router.push("/thank-you"); // Redirect on success
       } else {
         setSubmitStatus("error");

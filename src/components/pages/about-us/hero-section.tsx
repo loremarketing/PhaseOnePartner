@@ -12,7 +12,7 @@ export default function AboutUsHeroSection() {
         <div className="absolute top-50 -right-50 bottom-0 overflow-visible pointer-events-none z-0">
           <Image
             src="/images/About-us-images/Mask group.svg"
-            alt="Mask group"
+            alt=""
             width={1000}
             height={1000}
             className="h-full w-auto object-contain opacity-100"

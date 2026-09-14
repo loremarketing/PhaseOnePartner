@@ -116,16 +116,20 @@ export default function InvestorFounder() {
             </p>
             {/* Desktop */}
             <div className="hidden xl:block">
-              <h4 className="text-3xl lg:text-4xl xl:text-[62px] max-w-4xl mx-auto font-extrabold text-[#333333]">
+              {/* h2, not h4: this is a top-level section title and was firing
+                  before any h2 on the page, inverting the outline. The desktop
+                  and mobile variants are the same heading behind
+                  `hidden xl:block` / `xl:hidden`, so both carry the same level. */}
+              <h2 className="text-3xl lg:text-4xl xl:text-[62px] max-w-4xl mx-auto font-extrabold text-[#333333]">
                 What does deal
-              </h4>
+              </h2>
               <div className="relative inline-flex items-start gap-3 text-3xl lg:text-4xl xl:text-[62px] font-extrabold text-[#333333]">
                 <p>origination</p>
                 <div className="relative inline-flex items-start">
                   <p className="bg-[#c0c8f9] rounded-l-lg px-2">mean for you</p>
                   <Image
                     src="/flag.svg"
-                    alt="arrow-right"
+                    alt=""
                     width={400}
                     height={400}
                     className="absolute bottom-0 -right-[68px] w-[72px]"
@@ -139,9 +143,9 @@ export default function InvestorFounder() {
 
             {/* Mobile */}
             <div className="xl:hidden space-y-1.5">
-              <h4 className="text-3xl max-w-4xl mx-auto font-extrabold text-[#333333] leading-[120%]">
+              <h2 className="text-3xl max-w-4xl mx-auto font-extrabold text-[#333333] leading-[120%]">
                 What does deal origination
-              </h4>
+              </h2>
               <div className="relative mt-1 flex gap-3 w-fit text-3xl max-w-4xl mx-auto font-extrabold text-[#333333]">
                 <p
                   ref={mobileHighlightRef}
@@ -152,7 +156,7 @@ export default function InvestorFounder() {
                 <Image
                   ref={mobileTagRef}
                   src="/flag.svg"
-                  alt="PhaseOne tag"
+                  alt=""
                   width={400}
                   height={400}
                   className="absolute bottom-0 -right-[35px] w-[37px]"
@@ -182,9 +186,11 @@ export default function InvestorFounder() {
             >
               <div className="z-10 w-full">
                 <div className="mb-6">
-                  <h2 className="text-3xl lg:text-[34px] font-extrabold text-primary mb-2">
+                  {/* h3: these per-audience cards sit underneath the section
+                      title above, so they are one level down from it. */}
+                  <h3 className="text-3xl lg:text-[34px] font-extrabold text-primary mb-2">
                     For {section.title}
-                  </h2>
+                  </h3>
                   <p className="text-lg text-black uppercase font-semibold tracking-wide">
                     {section.subtitle}
                   </p>
@@ -226,7 +232,7 @@ export default function InvestorFounder() {
           <div className="absolute -top-16 -left-12 w-full h-full z-0">
             <Image
               src="/2nd-section-bg.webp"
-              alt="bg"
+              alt=""
               width={1000}
               height={1000}
               className="object-cover opacity-50"

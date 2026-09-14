@@ -16,7 +16,7 @@ export default function AboutUs() {
       <OpportunitySection />
       <Image
         src="/divider.webp"
-        alt="Section divider"
+        alt=""
         width={1000}
         height={1000}
         className="max-w-[1200px] mx-auto px-4 md:px-0 w-full h-full object-cover object-center"
@@ -24,7 +24,7 @@ export default function AboutUs() {
       <OurDifferenceSection />
       <Image
         src="/divider.webp"
-        alt="Section divider"
+        alt=""
         width={1000}
         height={1000}
         className="max-w-[1200px] mx-auto px-4 md:px-0 w-full h-full object-cover object-center"

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { track, trackMeta } from "@/lib/analytics/track";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -22,6 +23,9 @@ export default function Footer() {
       });
 
       if (response.ok) {
+        track("newsletter_signup", { form: "footer_newsletter", method: "email" });
+        trackMeta("Subscribe");
+
         setStatus("success");
         setEmail("");
       } else {
@@ -84,7 +88,7 @@ export default function Footer() {
               <button type="submit" className="cursor-pointer bg-primary rounded-r-lg px-4 py-3 flex items-center justify-center">
                 <Image
                   src="/icons/right-long-arrow.svg"
-                  alt="right arrow"
+                  alt=""
                   width={50}
                   height={50}
                   className="w-fit h-4"

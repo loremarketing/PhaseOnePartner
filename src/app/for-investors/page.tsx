@@ -128,7 +128,7 @@ export default function Forinvestors() {
         <div className="absolute top-50 -right-50 bottom-0 overflow-visible pointer-events-none z-0">
           <Image
             src="/Mask group (2).webp"
-            alt="Mask group"
+            alt=""
             width={1000}
             height={1000}
             className="h-full w-auto object-contain opacity-100"
@@ -485,7 +485,7 @@ export default function Forinvestors() {
             <div className="absolute top-1/2 -translate-y-1/2 right-[-15vw] z-[0] pointer-events-none">
               <Image
                 src="/bg-2.webp"
-                alt="Left side decorative element"
+                alt=""
                 width={584}
                 height={730}
                 className="w-fit h-[400px] object-cover"

@@ -110,7 +110,7 @@ const Team = () => {
                     <div className="md:hidden flex items-center justify-center">
                       <Image
                         src="/icons/correct.svg"
-                        alt="PhaseOne feature"
+                        alt="Included"
                         width={32}
                         height={32}
                         className="w-8 h-8"
@@ -125,7 +125,7 @@ const Team = () => {
                     <div className="md:hidden flex items-center justify-center">
                       <Image
                         src="/icons/cross.svg"
-                        alt="Traditional brokers feature"
+                        alt="Not included"
                         width={12}
                         height={14}
                         className="w-3 h-4"

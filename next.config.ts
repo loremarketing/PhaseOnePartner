@@ -16,6 +16,17 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '250mb',
     },
   },
+  // Staged for the v4 launch — uncomment the day /home-v4 becomes the homepage.
+  //
+  // Until then /home-v4 stays reachable for preview and carries `noindex` (see
+  // src/app/home-v4/page.tsx) so it doesn't compete with `/` in search. On
+  // launch, enable this and drop the noindex, so the URL's accumulated signals
+  // transfer to `/` instead of 404ing.
+  //
+  // async redirects() {
+  //   return [{ source: "/home-v4", destination: "/", permanent: true }];
+  // },
+
   // Image optimization settings
   images: {
     formats: ['image/avif', 'image/webp'],

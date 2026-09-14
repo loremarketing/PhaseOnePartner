@@ -1,9 +1,12 @@
 import NavbarV4 from "@/components/layout/navbar-v4";
+import { buildMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: "Privacy Policy - PhaseOne Partners",
-  description: "Privacy Policy for PhaseOne Partners",
-};
+export const metadata = buildMetadata({
+  title: "Privacy Policy",
+  description:
+    "How PhaseOne Partners Pty Ltd collects, uses, stores and protects your personal information, in line with the Privacy Act 1988 (Cth) and the Australian Privacy Principles.",
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicyPage() {
   return (

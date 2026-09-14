@@ -95,7 +95,7 @@ export default function AnimatedButton({
       >
         <Image
           src={`/icons/${variant === "inverse" ? "right-white" : "right"}.svg`}
-          alt="arrow"
+          alt=""
           width={50}
           height={50}
           className="w-14 h-14 -rotate-45"
