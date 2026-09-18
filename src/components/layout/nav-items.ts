@@ -19,8 +19,8 @@ import {
  * The site's link tree, in one place.
  *
  * Both navbars read from this: the marketing header and the v4 header used by
- * /home-v4 and /industries. They previously kept separate copies, which is how
- * the two ended up offering different menus.
+ * / and /industries. They previously kept separate copies, which is how the two
+ * ended up offering different menus.
  */
 export interface SubMenuItem {
   name: string;

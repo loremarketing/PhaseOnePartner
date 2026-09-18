@@ -278,7 +278,7 @@ $green-spring: rgba(183,188,180,1); */
 }
 
 /* ---------------------------------------------------------------------------
-   home-v4 navbar — the full pill morphs into the CTA button as the page scrolls.
+   v4 navbar — the full pill morphs into the CTA button as the page scrolls.
    `--shrink` / `--fade` (0 → 1) are written to the header element by a
    rAF-throttled scroll listener, so the morph tracks scroll position directly
    rather than snapping at a threshold. Desktop only; mobile keeps the plain pill.
@@ -432,7 +432,7 @@ $green-spring: rgba(183,188,180,1); */
 }
 
 /* ---------------------------------------------------------------------------
-   home-v4 scroll reveals — see scroll-reveal.tsx, which flips `data-revealed`
+   v4 scroll reveals — see scroll-reveal.tsx, which flips `data-revealed`
    as each element enters the viewport. Stagger comes from an inline
    `transition-delay` on the element itself.
 --------------------------------------------------------------------------- */
@@ -440,8 +440,8 @@ $green-spring: rgba(183,188,180,1); */
    in src/app/layout.tsx adds before <body> paints.
 
    Without that scope these elements start at opacity:0 for everyone, including
-   anything that never runs JavaScript — which put the <h1> on /industries and
-   /home-v4 in the "present in the HTML but rendered invisible" state that an
+   anything that never runs JavaScript — which put the <h1> on / and
+   /industries in the "present in the HTML but rendered invisible" state that an
    SEO audit reports as an empty heading. Gating on the class means no-JS gets
    the finished state and a real browser still gets the animation, since the
    class lands during head parse. */
