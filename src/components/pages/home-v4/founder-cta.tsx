@@ -11,7 +11,7 @@ export default function FounderCta() {
         <h2
           data-reveal
           className="font-manrope text-[32px] font-medium leading-[42px] text-white lg:max-w-[1050px] lg:text-[clamp(2.5rem,4.444vw,4rem)] lg:leading-[clamp(2.875rem,4.861vw,4.375rem)]">
-          Are you a founder considering an exit, succession or growth capital?
+          Are you a business owner considering an exit, succession or growth capital?
         </h2>
         <div
           data-reveal
