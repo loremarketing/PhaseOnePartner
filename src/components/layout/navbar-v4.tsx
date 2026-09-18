@@ -31,7 +31,10 @@ const LINKS = [
 
 /* Same entries, same icons, same panel as the marketing header — read from the
    shared tree so the two menus cannot drift apart again. */
-const EXPLORE = navigation.find((i) => i.name === "Explore")?.dropdown ?? [];
+const MENUS = ["Industries", "Explore"].map((name) => ({
+  name,
+  items: navigation.find((i) => i.name === name)?.dropdown ?? [],
+}));
 
 /** scroll distance over which the pill fully becomes the button */
 const MORPH_DISTANCE = 200;
@@ -41,7 +44,9 @@ const SHRINK_START = 0.25;
 
 export default function NavbarV4() {
   const [open, setOpen] = useState(false);
-  const [exploreOpen, setExploreOpen] = useState(false);
+  // one panel open at a time — two overlapping cards would fight for the same
+  // strip under the pill
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -137,42 +142,49 @@ export default function NavbarV4() {
         </Link>
 
         {/* desktop links — centred in the pill */}
-        <div className="v4-nav__fade hidden min-w-0 flex-1 items-center justify-center gap-6 lg:flex xl:gap-9">
+        <div className="v4-nav__fade hidden min-w-0 flex-1 items-center justify-center gap-4 lg:flex xl:gap-9">
           {LINKS.map((l) => (
             <Link
               key={l.name}
               href={l.href}
-              className="whitespace-nowrap font-poppins text-[15px] font-normal text-[#1a1a1a] transition-colors hover:text-[#0224e9]"
+              className="whitespace-nowrap font-poppins text-[14px] font-normal text-[#1a1a1a] xl:text-[15px] transition-colors hover:text-[#0224e9]"
             >
               {l.name}
             </Link>
           ))}
 
-          <div
-            className="relative"
-            onMouseEnter={() => setExploreOpen(true)}
-            onMouseLeave={() => setExploreOpen(false)}
-          >
-            <button
-              type="button"
-              className="flex shrink-0 items-center gap-1.5 whitespace-nowrap font-poppins text-[15px] font-normal text-[#1a1a1a] transition-colors hover:text-[#0224e9]"
-              aria-expanded={exploreOpen}
+          {MENUS.map((menu) => (
+            <div
+              key={menu.name}
+              className="relative"
+              onMouseEnter={() => setOpenMenu(menu.name)}
+              onMouseLeave={() => setOpenMenu(null)}
             >
-              Explore
-              <ChevronDown
-                className={`size-5 transition-transform duration-200 ${
-                  exploreOpen ? "rotate-180" : ""
-                }`}
-                strokeWidth={1.5}
-              />
-            </button>
+              <button
+                type="button"
+                className="flex shrink-0 items-center gap-1.5 whitespace-nowrap font-poppins text-[14px] font-normal text-[#1a1a1a] xl:text-[15px] transition-colors hover:text-[#0224e9]"
+                aria-expanded={openMenu === menu.name}
+              >
+                {menu.name}
+                <ChevronDown
+                  className={`size-5 transition-transform duration-200 ${
+                    openMenu === menu.name ? "rotate-180" : ""
+                  }`}
+                  strokeWidth={1.5}
+                />
+              </button>
 
-            <NavDropdown items={EXPLORE} open={exploreOpen} gap="tall" />
-          </div>
+              <NavDropdown
+                items={menu.items}
+                open={openMenu === menu.name}
+                gap="tall"
+              />
+            </div>
+          ))}
 
           <Link
             href="/contact"
-            className="whitespace-nowrap font-poppins text-[15px] font-normal text-[#1a1a1a] transition-colors hover:text-[#0224e9]"
+            className="whitespace-nowrap font-poppins text-[14px] font-normal text-[#1a1a1a] xl:text-[15px] transition-colors hover:text-[#0224e9]"
           >
             Contact
           </Link>

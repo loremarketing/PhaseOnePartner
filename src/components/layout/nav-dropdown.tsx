@@ -20,16 +20,24 @@ import { type DropdownItem, type SubMenuItem } from "./nav-items";
 const totalItems = (dropdown: DropdownItem[]) =>
   dropdown.reduce((n, item) => n + 1 + (item.submenu?.length ?? 0), 0);
 
+/**
+ * Columns are capped at two up to twelve entries. Three columns leaves each
+ * label ~200px, which is narrower than half the sector names in the Industries
+ * menu — they wrapped to two and three lines, so the icons floated to the
+ * middle of their labels and no two rows lined up. Two wide columns keep every
+ * label on one line, which is what makes the rows read as a grid.
+ */
 const gridLayout = (items: number) => {
   if (items <= 3) return "grid-cols-1";
-  if (items <= 6) return "grid-cols-2";
+  if (items <= 12) return "grid-cols-2";
   return "grid-cols-3";
 };
 
+/** paired with gridLayout — enough room for the longest label on one line */
 const panelWidth = (items: number) => {
   if (items <= 3) return "min-w-[236px]";
   if (items <= 6) return "min-w-[480px]";
-  if (items <= 12) return "min-w-[680px]";
+  if (items <= 12) return "min-w-[800px]";
   return "min-w-[880px]";
 };
 
@@ -86,13 +94,13 @@ export default function NavDropdown({
                 <Link
                   href={subItem.href}
                   target={subItem.name == "Careers" ? "_blank" : "_self"}
-                  className="group flex w-full items-center gap-2.5 rounded-md px-3 py-2 transition-colors hover:bg-[#0224e9]/[0.06]"
+                  className="group flex w-full items-center gap-2.5 rounded-md px-3 py-2.5 transition-colors hover:bg-[#0224e9]/[0.06]"
                 >
                   <span className="shrink-0 text-primary">
-                    <subItem.icon className="size-[18px]" />
+                    <subItem.icon className="size-5" />
                   </span>
                   <div className="flex flex-col">
-                    <span className="text-[14px] font-bold text-[#1a1a1a] transition-colors group-hover:text-[#0224e9]">
+                    <span className="text-[14px] font-bold leading-snug text-[#1a1a1a] transition-colors group-hover:text-[#0224e9]">
                       {subItem.name}
                     </span>
                   </div>
@@ -109,7 +117,7 @@ export default function NavDropdown({
                         className="group flex w-full items-center gap-2.5 rounded-md px-3 py-2 transition-colors hover:bg-[#0224e9]/[0.06]"
                       >
                         <span className="shrink-0 text-primary">
-                          <subSubItem.icon className="size-[18px]" />
+                          <subSubItem.icon className="size-5" />
                         </span>
                         <div className="flex flex-col">
                           <span className="text-[14px] font-semibold text-[#1a1a1a] transition-colors group-hover:text-[#0224e9]">
