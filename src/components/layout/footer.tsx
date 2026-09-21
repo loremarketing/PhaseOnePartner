@@ -39,7 +39,7 @@ export default function Footer() {
     <footer className="bg-[#F9F9F9] py-8 sm:py-12 lg:pt-24 mb-6 px-4 sm:px-6 lg:px-16">
       <div className="max-w-7xl mx-auto">
         {/* Top Section */}
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-12 mb-8 sm:mb-12">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-8 mb-8 sm:mb-12">
           {/* FollowPhaseOne PartnersSection */}
           <div className="w-full lg:w-auto flex flex-col items-center lg:items-start">
             <div className="text-[16px] sm:text-[12px] font-extrabold mb-2 flex gap-4 items-center">
@@ -103,17 +103,17 @@ export default function Footer() {
             )}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 w-full lg:w-auto justify-items-center lg:justify-items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8 lg:gap-4 w-full lg:flex-1 justify-items-center lg:justify-items-start">
             {/* PhaseOne Partners */}
             <div className="text-center lg:text-left">
-              <h4 className="font-extrabold text-[16px] sm:text-[18px] lg:text-[28px] mb-4 sm:mb-6 lg:mb-8">
+              <h4 className="font-extrabold text-[16px] sm:text-[18px] lg:text-[20px] 2xl:text-[22px] mb-4 sm:mb-6 lg:mb-8">
                 PhaseOne Partners
               </h4>
               <ul className="space-y-1 sm:space-y-2">
                 <li>
                   <Link
                     href="/for-founders"
-                    className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
+                    className="text-[14px] sm:text-[16px] 2xl:text-[18px] font-medium hover:text-primary transition-colors block"
                   >
                     For Business Owners
                   </Link>
@@ -121,7 +121,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/for-investors"
-                    className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
+                    className="text-[14px] sm:text-[16px] 2xl:text-[18px] font-medium hover:text-primary transition-colors block"
                   >
                     For Capital Partners
                   </Link>
@@ -130,15 +130,15 @@ export default function Footer() {
             </div>
 
             {/* Explore */}
-            <div className="text-center lg:text-left lg:pl-[36px]">
-              <h4 className="font-extrabold text-[16px] sm:text-[18px] lg:text-[28px] mb-4 sm:mb-6 lg:mb-8">
+            <div className="text-center lg:text-left">
+              <h4 className="font-extrabold text-[16px] sm:text-[18px] lg:text-[20px] 2xl:text-[22px] mb-4 sm:mb-6 lg:mb-8">
                 Explore
               </h4>
               <ul className="space-y-1 sm:space-y-2">
                 <li>
                   <Link
                     href="/about-us"
-                    className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
+                    className="text-[14px] sm:text-[16px] 2xl:text-[18px] font-medium hover:text-primary transition-colors block"
                   >
                     About PhaseOne Partners
                   </Link>
@@ -146,7 +146,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/industries"
-                    className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
+                    className="text-[14px] sm:text-[16px] 2xl:text-[18px] font-medium hover:text-primary transition-colors block"
                   >
                     Industries
                   </Link>
@@ -154,7 +154,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/contact"
-                    className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
+                    className="text-[14px] sm:text-[16px] 2xl:text-[18px] font-medium hover:text-primary transition-colors block"
                   >
                     Contact
                   </Link>
@@ -163,15 +163,15 @@ export default function Footer() {
             </div>
 
             {/* Legal */}
-            <div className="text-center lg:text-left lg:pl-[30px]">
-              <h4 className="font-extrabold text-[16px] sm:text-[18px] lg:text-[28px] mb-4 sm:mb-6 lg:mb-8">
+            <div className="text-center lg:text-left">
+              <h4 className="font-extrabold text-[16px] sm:text-[18px] lg:text-[20px] 2xl:text-[22px] mb-4 sm:mb-6 lg:mb-8">
                 Legal
               </h4>
               <ul className="space-y-1 sm:space-y-2">
                 <li>
                   <Link
                     href="/terms-and-conditions"
-                    className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
+                    className="text-[14px] sm:text-[16px] 2xl:text-[18px] font-medium hover:text-primary transition-colors block"
                   >
                     Terms and Conditions
                   </Link>
@@ -179,7 +179,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/privacy-policy"
-                    className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
+                    className="text-[14px] sm:text-[16px] 2xl:text-[18px] font-medium hover:text-primary transition-colors block"
                   >
                     Privacy Policy
                   </Link>
@@ -189,14 +189,14 @@ export default function Footer() {
 
             {/* Get in touch */}
             <div className="text-center lg:text-left">
-              <h4 className="font-extrabold text-[16px] sm:text-[18px] lg:text-[28px] mb-4 sm:mb-6 lg:mb-8">
+              <h4 className="font-extrabold text-[16px] sm:text-[18px] lg:text-[20px] 2xl:text-[22px] mb-4 sm:mb-6 lg:mb-8">
                 Get in touch
               </h4>
               <ul className="space-y-1 sm:space-y-2">
                 <li>
                   <a
                     href="tel:+61416825603"
-                    className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
+                    className="text-[14px] sm:text-[16px] 2xl:text-[18px] font-medium hover:text-primary transition-colors block"
                   >
                     Call PhaseOne Partners
                   </a>
@@ -204,7 +204,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="mailto:info@phaseonepartners.com.au"
-                    className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
+                    className="text-[14px] sm:text-[16px] 2xl:text-[18px] font-medium hover:text-primary transition-colors block"
                   >
                     Email PhaseOne Partners
                   </a>
