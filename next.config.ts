@@ -16,16 +16,16 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '250mb',
     },
   },
-  // Staged for the v4 launch — uncomment the day /home-v4 becomes the homepage.
+  // Live as of the v4 launch: /home-v4 IS the homepage now, so the preview URL
+  // hands its accumulated signals to `/` instead of 404ing.
   //
-  // Until then /home-v4 stays reachable for preview and carries `noindex` (see
-  // src/app/home-v4/page.tsx) so it doesn't compete with `/` in search. On
-  // launch, enable this and drop the noindex, so the URL's accumulated signals
-  // transfer to `/` instead of 404ing.
-  //
-  // async redirects() {
-  //   return [{ source: "/home-v4", destination: "/", permanent: true }];
-  // },
+  // 308 (`permanent: true`) is the intent here — the move is not coming back.
+  // Redirects are evaluated before the filesystem, so this wins even though
+  // src/app/home-v4/page.tsx has also been deleted; the route is gone twice
+  // over, deliberately.
+  async redirects() {
+    return [{ source: "/home-v4", destination: "/", permanent: true }];
+  },
 
   // Image optimization settings
   images: {

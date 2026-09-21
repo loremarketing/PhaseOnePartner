@@ -1,16 +1,32 @@
-import HomeVideo from "@/components/pages/home/video";
-import About from "@/components/pages/home/about";
-import HeroSection from "@/components/pages/home/hero-section";
-import Team from "@/components/pages/home/team";
-import InvestorFounder from "@/components/pages/home/investor-founder";
-import BlogSection from "@/components/pages/home/blog-section";
-import { Spotlight } from "@/components/ui/spotlight-new";
 import NavbarV4 from "@/components/layout/navbar-v4";
-import Image from "next/image";
+import ScrollReveal from "@/components/pages/home-v4/scroll-reveal";
+import Hero from "@/components/pages/home-v4/hero";
+import WhoWeWorkWith from "@/components/pages/home-v4/who-we-work-with";
+import OriginationEngine from "@/components/pages/home-v4/origination-engine";
+import EmbeddedCapability from "@/components/pages/home-v4/embedded-capability";
+import Process from "@/components/pages/home-v4/process";
+import WhyChoose from "@/components/pages/home-v4/why-choose";
+import WhyOriginationMatters from "@/components/pages/home-v4/why-origination-matters";
+import AccessCta from "@/components/pages/home-v4/access-cta";
+import ExploreSectors from "@/components/pages/home-v4/explore-sectors";
+import FounderCta from "@/components/pages/home-v4/founder-cta";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-// The homepage title carries the brand itself rather than having it appended,
-// so it opts out of the "<page> | PhaseOne Partners" pattern the other routes use.
+/**
+ * The v4 homepage. `/home-v4` no longer exists as a route — it 301s here, see
+ * the `redirects()` block in next.config.ts.
+ *
+ * The title and description are the ones `/` has been carrying, NOT the preview
+ * copy `/home-v4` used. The page's content changed; the URL's search targeting
+ * did not, and "Deal Origination for Private Capital" is the keyword-bearing
+ * title this URL has accumulated signals against. The v4 preview title was
+ * "Proprietary deal flow, before the market sees it" if that is ever wanted
+ * instead — it reads better but carries no keyword.
+ *
+ * The previous homepage's sections still exist in src/components/pages/home/
+ * and are now imported by nothing, kept on disk so this swap can be reverted
+ * with a single file.
+ */
 export const metadata = buildMetadata({
   title: "Deal Origination for Private Capital",
   description:
@@ -21,27 +37,22 @@ export const metadata = buildMetadata({
 export default function Home() {
   return (
     <>
+      {/* The <noscript> style that used to sit here is no longer needed: the
+          reveal rules in globals.css are now scoped to `html.js-reveal`, a
+          class only added when JavaScript runs, so anything without JS gets the
+          finished state by default rather than needing an override. */}
+      <ScrollReveal />
       <NavbarV4 />
-      <HeroSection />
-      <InvestorFounder />
-      <HomeVideo />
-      <Image
-        src="/divider.webp"
-        alt=""
-        width={1000}
-        height={1000}
-        className="max-w-[1200px] mx-auto px-4 md:px-0 w-full h-full object-cover object-center"
-      />
-      <Team />
-      <Image
-        src="/divider.webp"
-        alt=""
-        width={1000}
-        height={1000}
-        className="max-w-[1200px] mx-auto px-4 md:px-0 w-full h-full object-cover object-center"
-      />
-      {/* <BlogSection /> */}
-      <About />
+      <Hero />
+      <WhoWeWorkWith />
+      <OriginationEngine />
+      <EmbeddedCapability />
+      <Process />
+      <WhyChoose />
+      <WhyOriginationMatters />
+      <AccessCta />
+      <ExploreSectors />
+      <FounderCta />
     </>
   );
 }

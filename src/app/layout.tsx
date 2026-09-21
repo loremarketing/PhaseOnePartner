@@ -16,9 +16,14 @@ import CookieBanner from "@/components/consent/cookie-banner";
 
 // The body font (globals.css sets `font-family: var(--font-manrope)` on body),
 // so it also renders every element that carries only a weight class and no
-// family class. All six weights are genuinely in use — 300 via `font-light` in
-// investor-founder.tsx and 800 via seventeen `font-extrabold` orphans — so
-// none can be dropped.
+// family class.
+//
+// 800 is still in use via `font-extrabold` in footer.tsx. 300 is NOT, as of the
+// v4 homepage swap: its only user was `font-light` in investor-founder.tsx,
+// which came off the homepage with the old sections and is now imported by
+// nothing. Kept loaded on purpose — dropping it is a real weight saving, but do
+// it only once src/components/pages/home/ is actually deleted rather than
+// merely orphaned, or a revert brings the page back missing a weight.
 const manrope = Manrope({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -106,7 +111,7 @@ try{
 }catch(e){}
 /* Scroll reveals are hidden only when this class is present, so a crawler or
    browser that never runs JS sees the content — including the primary heading
-   on /industries and /home-v4 — instead of opacity:0. Set here rather than in a
+   on / and /industries — instead of opacity:0. Set here rather than in a
    deferred script so it lands before the body paints and nothing flashes.
    (Deliberately no literal heading tag in this comment: it sits in the served
    HTML, and regex-based SEO crawlers count it as a real element.) */
@@ -143,20 +148,22 @@ document.documentElement.classList.add('js-reveal');
           first track call makes the pixel queue events instead of sending them,
           and the banner calls `fbq('consent','grant')` to flush that queue.
 
-          DELIBERATELY still a raw inline <script> rather than `next/script`.
-          Moving it to `afterInteractive` is the obvious improvement — it is the
-          one render-blocking third-party script left on the page — but it also
-          removes a delay the homepage has come to depend on: the mobile
-          entrance animation in `investor-founder.tsx` measures its ScrollTrigger
-          during hydration, and without this script holding head parsing back it
-          measures unsettled layout and the animation stops running. Verified
-          with a screenshot diff of the homepage at 390px: deferred, it failed in
-          five loads out of five.
+          DELIBERATELY still a raw inline <script> rather than `next/script`,
+          but the reason has now expired and this is worth revisiting.
 
-          So the gating lands now and the deferral waits. To pick it up later,
-          make that animation independent of load timing first (an
-          IntersectionObserver is the right tool), then switch this to
-          `<Script id="meta-pixel" strategy="afterInteractive">`.
+          It was left render-blocking because the mobile entrance animation in
+          `investor-founder.tsx` measured its ScrollTrigger during hydration and
+          needed this script holding head parsing back to measure settled
+          layout; deferred, it failed five loads out of five at 390px. That
+          component came off the homepage in the v4 swap and is now imported by
+          nothing, so nothing on any live route depends on the delay any more.
+
+          Switching this to `<Script id="meta-pixel" strategy="afterInteractive">`
+          should now be safe and removes the last render-blocking third-party
+          script on the site. Left as-is in the swap commit so a homepage
+          replacement and a tracking change are not entangled in one diff —
+          change it on its own, and re-check the mobile animation first if
+          src/components/pages/home/ is ever restored.
         */}
         <script
           dangerouslySetInnerHTML={{

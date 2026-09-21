@@ -17,7 +17,7 @@ export const metadata = buildMetadata({
 export default function IndustriesPage() {
   return (
     <>
-      {/* No <noscript> reveal override needed — see the note in /home-v4. */}
+      {/* No <noscript> reveal override needed — see the note in src/app/page.tsx. */}
       <ScrollReveal />
       <NavbarV4 />
       <Hero />
