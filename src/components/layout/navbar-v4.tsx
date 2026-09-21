@@ -27,11 +27,15 @@ import { navigation } from "@/components/layout/nav-items";
 const LINKS = [
   { name: "For Capital Partners", href: "/for-investors" },
   { name: "For Business Owners", href: "/for-founders" },
+  // A plain link until each sector has its own page — its dropdown is staged
+  // (commented) in nav-items.ts. Move this entry back into MENUS below when
+  // that list is restored; it renders here in the same slot either way.
+  { name: "Industries", href: "/industries" },
 ];
 
 /* Same entries, same icons, same panel as the marketing header — read from the
    shared tree so the two menus cannot drift apart again. */
-const MENUS = ["Industries", "Explore"].map((name) => ({
+const MENUS = [/* "Industries", */ "Explore"].map((name) => ({
   name,
   items: navigation.find((i) => i.name === name)?.dropdown ?? [],
 }));
