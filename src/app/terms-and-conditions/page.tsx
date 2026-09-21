@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import NavbarV4 from "@/components/layout/navbar-v4";
 import { buildMetadata } from "@/lib/seo/metadata";
 
@@ -203,14 +205,11 @@ export default function TermsAndConditionsPage() {
                     </p>
                     <p>
                       <strong>Website:</strong>{" "}
-                      <a
-                        href="https://www.phaseonepartners.com.au"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline"
-                      >
+                      {/* Same site — a route, not an outbound link. See the
+                          note on the matching line in privacy-policy. */}
+                      <Link href="/" className="text-primary hover:underline">
                         www.phaseonepartners.com.au
-                      </a>
+                      </Link>
                     </p>
                   </div>
                 </div>

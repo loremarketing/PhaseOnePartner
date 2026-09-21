@@ -126,14 +126,6 @@ export default function Footer() {
                     For Capital Partners
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/industries"
-                    className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
-                  >
-                    Industries
-                  </Link>
-                </li>
               </ul>
             </div>
 
@@ -149,6 +141,14 @@ export default function Footer() {
                     className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
                   >
                     About PhaseOne Partners
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/industries"
+                    className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium hover:text-primary transition-colors block"
+                  >
+                    Industries
                   </Link>
                 </li>
                 <li>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import NavbarV4 from "@/components/layout/navbar-v4";
 import { buildMetadata } from "@/lib/seo/metadata";
 
@@ -322,14 +324,15 @@ export default function PrivacyPolicyPage() {
                   </p>
                   <p>
                     <strong>Website:</strong>{" "}
-                    <a
-                      href="https://www.phaseonepartners.com.au"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
-                    >
+                    {/* Same site, so this is a route — not an outbound link.
+                        The visible text stays the literal address because this
+                        block is a printed contact record, but it navigates
+                        client-side rather than reloading the document in a new
+                        tab. The tel: and mailto: siblings below stay raw <a>:
+                        neither is a route for the router to handle. */}
+                    <Link href="/" className="text-primary hover:underline">
                       www.phaseonepartners.com.au
-                    </a>
+                    </Link>
                   </p>
                   <p>
                     <strong>Email:</strong>{" "}
